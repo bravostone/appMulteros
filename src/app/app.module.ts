@@ -11,13 +11,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroTareoComponent } from './components/registroTareo/registroTareo.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { MenuComponent } from './components/shared/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroTareoComponent,
-    NavbarComponent
+    NavbarComponent,
+    MenuComponent
+
   ],
   imports: [
     BrowserModule,
