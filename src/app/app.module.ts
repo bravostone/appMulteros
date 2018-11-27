@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroHorasComponent } from './components/registroHoras/registroHoras.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { MenuComponent } from './components/shared/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroHorasComponent,
-    NavbarComponent
+    NavbarComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
