@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {RegistroHorasComponent} from './components/registroHoras/registroHoras.component'
+import {RegistroTareoComponent} from './components/registroTareo/registroTareo.component'
 
 const routes: Routes = [
-  { path: 'registroHoras', component: RegistroHorasComponent},
+  { path: 'registroTareo', component: RegistroTareoComponent},
   { path: '**' , pathMatch: 'full' ,redirectTo: 'login'}
 ];
 

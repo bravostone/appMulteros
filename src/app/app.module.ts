@@ -9,14 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 //Componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegistroHorasComponent } from './components/registroHoras/registroHoras.component';
+import { RegistroTareoComponent } from './components/registroTareo/registroTareo.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroHorasComponent,
+    RegistroTareoComponent,
     NavbarComponent
   ],
   imports: [
