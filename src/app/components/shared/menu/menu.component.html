@@ -1,3 +1,56 @@
-<p>
-  menu works!
-</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Icons Navigation</title>
+
+    <link rel="stylesheet" href="../../../../assets/demo.css">
+    <link rel="stylesheet" href="../../../../assets/navigation-icons.css">
+    <link rel="stylesheet" href="../../../../assets/slicknav/slicknav.min.css">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <br><br><br><br><br><br>
+    <div class=container>
+        <div class="row">
+            <div class="menu-navigation-icons col-sm">
+                <a href="#" class="menu-magenta"><i class="fa fa-clock-o"></i><span>Asistencia</span></a>
+            </div>
+            <div class="menu-navigation-icons col-sm">
+                <a href="#" class="menu-blue"><i class="fa fa-pencil-square-o"></i><span>Registrar Entrada</span></a><br>
+            </div>
+            <div class="menu-navigation-icons col-sm">
+                <a href="#" class="menu-green"><i class="fa fa-file-pdf-o"></i><span>Reporte</span></a>
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+
+            <div class="menu-navigation-icons col-sm">
+                <a href="#" class="menu-yellow"><i class="fa fa-users"></i><span>Equipo</span></a>
+            </div>
+            <div class="menu-navigation-icons col-sm">
+                <a href="#" class="menu-red"><i class="fa fa-user"></i><span>Responsable</span></a>
+            </div>
+            <div class="menu-navigation-icons col-sm"></div>
+        </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="assets/slicknav/jquery.slicknav.min.js"></script>
+
+    <script>
+        $(function() {
+            $('.menu-navigation-icons').slicknav();
+        });
+    </script>
+
+</body>
+
+</html>
