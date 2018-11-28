@@ -12,6 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroTareoComponent } from './components/registroTareo/registroTareo.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
+import {AsignacionGrupoComponent} from './components/asignacionGrupo/asignacionGrupo.componente';
+import {AsignacionResponsableComponent} from './components/asignacionResponsable/asignacionResponsable.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MenuComponent } from './components/shared/menu/menu.component';
     LoginComponent,
     RegistroTareoComponent,
     NavbarComponent,
-    MenuComponent
+    MenuComponent,
+    AsignacionGrupoComponent,
+    AsignacionResponsableComponent
 
   ],
   imports: [
