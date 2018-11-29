@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-asignacionResponsable',
@@ -12,5 +13,10 @@ export class AsignacionResponsableComponent implements OnInit {
   
     ngOnInit() {
    
+    }
+
+    guardar()
+    {
+        
     }
   }
