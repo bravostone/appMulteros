@@ -1,14 +1,35 @@
 <h3>Módulo de Asignación del Responsable</h3>
 
-<div>
-    <div class="col-md-12">
+<div class="body">
+    <div class="col-md-4">
         <form (submit)="guardar()" #forma="ngForm">
-            <div class="form-group">
-                <label>Nuevo Usuario Responsable</label>
+            <div>
+                <label>Actual Usuario Responsable: {{usuario}}</label>
             </div>
-            <div class="form-group">
-                <label>Fecha Inicio:</label>
-                <label>Fecha Fin:</label>
+            <div>
+                <label>Fecha Inicio: {{fecha_inicio}}</label>
+            </div>
+            <div>
+                <label>Fecha Fin: {{fecha_fin}}</label>
+            </div>
+            <div>
+                <label>Lista de Usuarios</label>
+                <select [(ngModel)]="usuario" name="usuario">
+                    <option value="">--Seleccionar--</option>
+                    <option value="Piero">Piero Bravo</option>
+                    <option value="Alexi">Alexi Espinoza</option>
+                    <option value="Diana">Diana Camus</option>
+                    <option value="Oscar">Oscar Ortiz</option>
+                    <option value="Leonardo">Leonardo Depaz</option>
+                    <option value="Katiuska">Katiuska Mio</option>
+                    <option value="Johan">Johan Leon</option>
+                    <option value="Carlos">Carlos Alvarado</option>
+                    <option value="Cynthia">Cynthia Cayo</option>
+                    <option value="Cesareo">Cesareo Tello</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-outline-primary">Grabar</button>
             </div>
         </form>
     </div>

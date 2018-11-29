@@ -8,6 +8,10 @@ import { NgForm } from '@angular/forms';
 
 export class AsignacionResponsableComponent implements OnInit {
 
+usuario: string = "Piero";
+fecha_inicio: string = "03/12/2018";
+fecha_fin: string = "07/12/2018";
+
     constructor() {
      }
   
@@ -17,6 +21,6 @@ export class AsignacionResponsableComponent implements OnInit {
 
     guardar()
     {
-        
+        alert(this.usuario);
     }
   }
