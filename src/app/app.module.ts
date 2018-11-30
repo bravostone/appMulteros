@@ -3,6 +3,12 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 
+//Servicios
+import {LoginService} from './services/login.service'
+import {TareoService} from './services/registroTareo.service'
+
+
+
 //Rutas
 import { AppRoutingModule } from "./app-routing.module";
 
@@ -25,8 +31,19 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
     AsignacionGrupoComponent,
     AsignacionResponsableComponent
   ],
-  imports: [BrowserModule, FormsModule, HttpModule, AppRoutingModule],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [
+    BrowserModule, 
+    FormsModule, 
+    HttpModule, 
+    AppRoutingModule
+  ],
+  providers: [
+    TareoService,
+    LoginService
+  ],
+  bootstrap: [
+    AppComponent, 
+    RegistroTareoComponent
+  ]
 })
 export class AppModule {}
