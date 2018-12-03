@@ -1,36 +1,73 @@
-  <form>
-      <div class="col-sm-4">
-          <label>Día</label>
-          <input [(ngModel)]="bandeja.dia" name="dia" type="text" class="form-control is-valid" id="txtDia" disabled="disabled">
-      </div>
-      <div class="col-sm-4">
-          <label>Responsable</label>
-          <input [(ngModel)]="bandeja.responsable" name="responsable" type="text" class="form-control is-valid" id="txtResponsable" disabled="disabled">
-      </div>
-      <br />
-      <div class="form-group">
-          <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Usuario</th>
-                  <th scope="col">Tipo</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr *ngFor="let item of bandeja.listaUsuario; let i = index">
-                      <td>{{i + 1}}</td>
-                      <td>{{item.NombreCompleto}}</td>
-                      <td>
-                          <select class="custom-select" name="item">
-                              <option value="{{item2.CodigoParametro}}" 
-                                      *ngFor="let item2 of bandeja.listaAsistencia;">
-                                      {{item2.DescripcionValor}}</option>
-                            </select>
-                      </td>
-                  </tr>
-              </tbody>
-            </table>
-      </div>
-      <button type="submit" class="btn btn-primary">Grabar</button>
-    </form>
+
+<div class="col-md-12">
+<div class="card">
+   <div class="card-header">
+        <strong>Registro de Asistencia</strong> - Mes Noviembre
+    </div>
+    <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+            <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="disabled-input">Día</label>
+                    <div class="col-md-3">
+                      <input [(ngModel)]="bandeja.dia" name="dia" type="text" class="form-control is-valid" id="txtDia" disabled>
+                    </div>
+                    <label class="col-md-3 col-form-label" for="disabled-input">Responsable</label>
+                    <div class="col-md-3">
+                            <input [(ngModel)]="bandeja.responsable" name="responsable" type="text" class="form-control is-valid" id="txtResponsable" disabled>
+                    </div>
+            </div>
+         </form>
+    </div>
+
+    <div class="row">
+            <div class="col-lg-12">
+            <!-- <div class="card"> -->
+                <!-- <div class="card-header">
+                <i class="fa fa-align-justify"></i> Combined All Table
+                </div> -->
+                <div class="card-body">
+                <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Usuario</th>
+                        <th>Tipo Asistencia</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of bandeja.listaUsuario; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{item.NombreCompleto}}</td>
+                            <td>
+                                <select class="custom-select" name="item">
+                                    <option value="{{item2.CodigoParametro}}" 
+                                            *ngFor="let item2 of bandeja.listaAsistencia;">
+                                            {{item2.DescripcionValor}}</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+                </div>
+            <!-- </div> -->
+            </div>
+    </div>
+    <div class="card-footer" style="text-align: right">
+        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Grabar</button>
+        <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Limpiar</button>
+    </div>
+</div>
+</div>
+
