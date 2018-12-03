@@ -1,12 +1,13 @@
   <form>
       <div class="col-sm-4">
           <label>Día</label>
-          <input type="text" class="form-control is-valid" id="txtDia" disabled="disabled">
+          <input [(ngModel)]="bandeja.dia" name="dia" type="text" class="form-control is-valid" id="txtDia" disabled="disabled">
       </div>
       <div class="col-sm-4">
           <label>Responsable</label>
-          <input type="text" class="form-control is-valid" id="txtResponsable" disabled="disabled">
+          <input [(ngModel)]="bandeja.responsable" name="responsable" type="text" class="form-control is-valid" id="txtResponsable" disabled="disabled">
       </div>
+      <br />
       <div class="form-group">
           <table class="table table-hover">
               <thead>
@@ -17,17 +18,17 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Alexi Espinoza</td>
-                  <td><select class="custom-select">
-                      <option selected>Seleccionar</option>
-                      <option value="1">Comodin</option>
-                      <option value="2">Multa</option>
-                      <option value="3">Permiso</option>
-                    </select>
-                  </td>
-                </tr>
+                  <tr *ngFor="let item of bandeja.listaUsuario; let i = index">
+                      <td>{{i + 1}}</td>
+                      <td>{{item.NombreCompleto}}</td>
+                      <td>
+                          <select class="custom-select" name="item">
+                              <option value="{{item2.CodigoParametro}}" 
+                                      *ngFor="let item2 of bandeja.listaAsistencia;">
+                                      {{item2.DescripcionValor}}</option>
+                            </select>
+                      </td>
+                  </tr>
               </tbody>
             </table>
       </div>
