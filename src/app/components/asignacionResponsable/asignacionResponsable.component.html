@@ -1,35 +1,53 @@
 <h3>Módulo de Asignación del Responsable</h3>
 
-<div class="body">
-    <div class="col-md-4">
+<div>
+    <div class="col-6">
         <form (submit)="guardar()" #forma="ngForm">
+            <div class="col-12"></div>
             <div>
-                <label>Actual Usuario Responsable: {{usuario}}</label>
-            </div>
-            <div>
-                <label>Fecha Inicio: {{fecha_inicio}}</label>
-            </div>
-            <div>
-                <label>Fecha Fin: {{fecha_fin}}</label>
-            </div>
-            <div>
-                <label>Lista de Usuarios</label>
-                <select [(ngModel)]="usuario" name="usuario">
-                    <option value="">--Seleccionar--</option>
-                    <option value="Piero">Piero Bravo</option>
-                    <option value="Alexi">Alexi Espinoza</option>
-                    <option value="Diana">Diana Camus</option>
-                    <option value="Oscar">Oscar Ortiz</option>
-                    <option value="Leonardo">Leonardo Depaz</option>
-                    <option value="Katiuska">Katiuska Mio</option>
-                    <option value="Johan">Johan Leon</option>
-                    <option value="Carlos">Carlos Alvarado</option>
-                    <option value="Cynthia">Cynthia Cayo</option>
-                    <option value="Cesareo">Cesareo Tello</option>
-                </select>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-outline-primary">Grabar</button>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>Responsable Actual:</td>
+                            <td>{{asignacion.codigo_usuario_responsable_anterior}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Fecha Inicio:</td>
+                            <td>{{asignacion.fecha_inicio_tareo}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Fecha Fin:</td>
+                            <td>{{asignacion.fecha_fin_tareo}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Lista de Usuarios</td>
+                            <td><select [(ngModel)]="asignacion.codigo_usuario_responsable_actual " name="usuario ">
+                        <option value=" ">--Seleccionar--</option>
+                        <option value="Piero ">Piero Bravo</option>
+                        <option value="Alexi ">Alexi Espinoza</option>
+                        <option value="Diana ">Diana Camus</option>
+                        <option value="Oscar ">Oscar Ortiz</option>
+                        <option value="Leonardo ">Leonardo Depaz</option>
+                        <option value="Katiuska ">Katiuska Mio</option>
+                        <option value="Johan ">Johan Leon</option>
+                        <option value="Carlos ">Carlos Alvarado</option>
+                        <option value="Cynthia ">Cynthia Cayo</option>
+                        <option value="Cesareo ">Cesareo Tello</option>
+                    </select></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button type="submit " class="btn btn-outline-primary ">Grabar</button>
+                </div>
             </div>
         </form>
     </div>
