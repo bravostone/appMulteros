@@ -1,20 +1,21 @@
-    <div class="row no-gutters" style="background-color: #f5f5f5;padding-top: 4px;padding-bottom: 4px">
-        <div class="col-12 col-sm-6 col-md-8">
-            <span style="color: mediumblue;padding-left: 20px;">
+<div class="row no-gutters" [ngStyle]="{'background' : 'url(./assets/images/minions-navbar.jpg)'}" style="background-color: #f5f5f5;padding-top: 4px;padding-bottom: 4px">
+    <div class="col-12 col-sm-6 col-md-8">
+        <span style="color: mediumblue;padding-left: 20px;">
                 <i class="fas fa-clock fa-lg"></i>
                 <label style="padding: 10px">Aplicación Multeros</label>
             </span>
-        </div>
-        <div class="col-6 col-md-4">
-            <span style="color: mediumblue;padding-left: 240px;">
-                <i class="fas fa-home fa-lg" [routerLink] = "['registroTareo']"></i>
+    </div>
+    <div class="col-6 col-md-4">
+        <span style="color: mediumblue;padding-left: 240px;">
+                <a [routerLink] = "['menu']">
+                <i class="fas fa-home fa-lg" ></i></a>
             </span>
-            <span style="color: mediumblue;padding-left: 20px;">
+        <span style="color: mediumblue;padding-left: 20px;">
                 <i class="fas fa-user fa-lg"></i>
                 <label style="padding: 10px">Alexi Espinoza</label>
             </span>
-            <span style="color: mediumblue;padding-left: 2px;">
+        <span style="color: mediumblue;padding-left: 2px;">
             <i class="fas fa-sort-down"></i>
           </span>
-        </div>
-  </div>
+    </div>
+</div>
