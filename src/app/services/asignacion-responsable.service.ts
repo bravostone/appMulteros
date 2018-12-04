@@ -10,7 +10,7 @@ import { asignacionResponsable } from '../interfaces/asignacionResponsable.inter
 })
 export class AsignacionResponsableService {
 
-  constructor(private http:Http, _asignacionResponsable: asignacionResponsable) { }
+  constructor(private http:Http) { }
 
   DatosURL:string ="";
   
@@ -24,7 +24,7 @@ export class AsignacionResponsableService {
     });
   }
 
-  InsertResponsable(_asignacionResponsable){
+  InsertResponsable(_asignacionResponsable: asignacionResponsable){
     let body = JSON.stringify(_asignacionResponsable);
     let headers = new Headers({
       "Content-Type": "application/json"
