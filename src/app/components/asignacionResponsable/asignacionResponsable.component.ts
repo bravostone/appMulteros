@@ -14,12 +14,6 @@ export class AsignacionResponsableComponent implements OnInit {
   fechaDesde: Date = new Date();
   fechaHasta: Date = new Date();
   
-<<<<<<< HEAD
-    ngOnInit() {
-       debugger;
-    }
-  }
-=======
   //<fechaHasta = this.fechaDesde.setDate(this.fechaDesde.getDate() + 1);
 
   private asignacion: asignacionResponsable = {
@@ -42,4 +36,3 @@ export class AsignacionResponsableComponent implements OnInit {
     alert(this.asignacion.codigo_usuario_responsable_actual);
   }
 }
->>>>>>> 514142e9b78dd0d3773a181b0d0759e5ee747a6a
