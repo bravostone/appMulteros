@@ -16,13 +16,13 @@ export class AsignacionResponsableComponent implements OnInit {
   
   //<fechaHasta = this.fechaDesde.setDate(this.fechaDesde.getDate() + 1);
 
-  private asignacion: asignacionResponsable = {
-    codigo_usuario_responsable_actual: "8",
-    codigo_usuario_responsable_anterior: "Katiuska",
-    fecha_inicio_tareo: formatDate(this.fechaDesde, "dd/MM/yyyy", "en"),
-    fecha_fin_tareo: formatDate(this.fechaHasta, "dd/MM/yyyy", "en")
+  asignacion: asignacionResponsable = {
+    CodigoUsuarioActual: 8,
+    NombreCompleto: "Katiuska",
+    FechaInicioTareo: this.fechaDesde,
+    FechaFinTareo: this.fechaHasta
   };
-
+  // formatDate(this.fechaHasta, "dd/MM/yyyy", "en")
   constructor(private _usuarioService: UsuarioService) {
     this._usuarioService.obtenerUsuario().subscribe(data => {
       this.usuarios = data;
@@ -33,6 +33,6 @@ export class AsignacionResponsableComponent implements OnInit {
   ngOnInit() {}
 
   guardar() {
-    alert(this.asignacion.codigo_usuario_responsable_actual);
+    alert(this.asignacion.NombreCompleto);
   }
 }

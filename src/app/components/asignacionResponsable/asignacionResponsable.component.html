@@ -10,27 +10,27 @@
                         <tr>
                             <td></td>
                             <td>Responsable Actual:</td>
-                            <td>{{asignacion.codigo_usuario_responsable_anterior}}</td>
+                            <td>{{asignacion.CodigoUsuarioActual}}</td>
                             <td></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td>Fecha Inicio:</td>
-                            <td>{{asignacion.fecha_inicio_tareo}}</td>
+                            <td>{{asignacion.FechaInicioTareo | date:'dd/MM/yyyy'}}</td>
                             <td></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td>Fecha Fin:</td>
-                            <td>{{asignacion.fecha_fin_tareo}}</td>
+                            <td>{{asignacion.FechaFinTareo | date:'dd/MM/yyyy'}}</td>
                             <td></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td>Lista de Usuarios</td>
                             <td>
-                                <select [(ngModel)]="asignacion.codigo_usuario_responsable_actual" name="usuario">
-                                    <option value="">--Seleccionar--</option>
+                                <select [(ngModel)]="asignacion.CodigoUsuarioActual" name="usuario">
+                                    <option value="0">--Seleccionar--</option>
                                     <option value="{{usuario.CodigoUsuario}}" 
                                     *ngFor="let usuario of usuarios">{{usuario.NombreCompleto}}
                                     </option>
