@@ -16,7 +16,7 @@ export class AsignacionResponsableComponent implements OnInit {
   
   //<fechaHasta = this.fechaDesde.setDate(this.fechaDesde.getDate() + 1);
 
-  private asignacion: asignacionResponsable = {
+  asignacion: asignacionResponsable = {
     CodigoUsuarioActual: 8,
     NombreCompleto: "Katiuska",
     FechaInicioTareo: this.fechaDesde,
