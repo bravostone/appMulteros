@@ -40,6 +40,6 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
     appRoutingProvider,
     AsignacionResponsableService
   ],
-  bootstrap: [AppComponent, RegistroTareoComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

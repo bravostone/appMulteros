@@ -31,11 +31,11 @@ export class RegistroTareoComponent implements OnInit {
       (data: any) =>{
         if(data.Success == true){
           this.bandeja.dia             = data.FechaActual;
-          this.bandeja.responsable     = data.Responsable.NombreCompleto;
+          this.bandeja.responsable     = data.Responsable.nombre;
           this.bandeja.listaUsuario    = data.Usuarios;
           this.bandeja.listaAsistencia = data.Asistencias;
 
-          console.log(this.bandeja.listaUsuario    = data.Usuarios);
+          //console.log(this.bandeja.listaUsuario    = data.Usuarios);
         }
         else{
           alert(data.Message);

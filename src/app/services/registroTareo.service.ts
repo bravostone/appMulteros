@@ -9,7 +9,7 @@ export class TareoService{
     url_IndexTareo: string = "https://gymsolucionesdev-multeros.azurewebsites.net/api/Tareo/ListarTareo"
 
     constructor(private http: Http){
-        console.log("entre al servicio de tareo");
+        //console.log("entre al servicio de tareo");
     }
 
     getIndex(){
