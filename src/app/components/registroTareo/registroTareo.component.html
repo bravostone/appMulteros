@@ -1,4 +1,4 @@
-
+<br/>
 <div class="col-md-12">
 <div class="card">
    <div class="card-header">
@@ -6,14 +6,20 @@
     </div>
     <div class="card-body">
         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-            <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="disabled-input">Día</label>
+            <div class="row">
+                    <label class="col-md-2 col-form-label" for="disabled-input">Responsable:</label>
                     <div class="col-md-3">
-                      <input [(ngModel)]="bandeja.dia" name="dia" type="text" class="form-control is-valid" id="txtDia" disabled>
+                        <input [(ngModel)]="bandeja.responsable" name="responsable" type="text" class="form-control is-valid" id="txtResponsable" disabled>
                     </div>
-                    <label class="col-md-3 col-form-label" for="disabled-input">Responsable</label>
-                    <div class="col-md-3">
-                            <input [(ngModel)]="bandeja.responsable" name="responsable" type="text" class="form-control is-valid" id="txtResponsable" disabled>
+                    <label class="col-md-1 col-form-label" for="disabled-input" style="text-align: right ;">Día:</label>
+                    <div class="col-md-2">
+                        <input [(ngModel)]="bandeja.dia" name="dia" type="text" class="form-control is-valid" id="txtDia" disabled>
+                    </div>
+                    <div class="col-md-2 col-form-label">
+                        
+                    </div>
+                    <div class="col-md-2 col-form-label">
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-save"></i> Grabar</button>
                     </div>
             </div>
          </form>
@@ -64,10 +70,10 @@
             <!-- </div> -->
             </div>
     </div>
-    <div class="card-footer" style="text-align: right">
+    <!-- <div class="card-footer" style="text-align: right">
         <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Grabar</button>
         <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Limpiar</button>
-    </div>
+    </div> -->
 </div>
 </div>
 
