@@ -10,7 +10,7 @@ import { TareoService } from "./services/registroTareo.service";
 import { UsuarioService } from "./services/shared/usuario.service";
 
 //Rutas
-import { AppRoutingModule } from "./app-routing.module";
+import { appRoutingProvider, routing } from "./app-routing.module";
 
 //Componentes
 import { AppComponent } from "./app.component";
@@ -31,8 +31,8 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
     AsignacionGrupoComponent,
     AsignacionResponsableComponent
   ],
-  imports: [BrowserModule, FormsModule, HttpModule, AppRoutingModule],
-  providers: [TareoService, LoginService, UsuarioService],
+  imports: [BrowserModule, FormsModule, HttpModule,routing],
+  providers: [TareoService, LoginService, UsuarioService,appRoutingProvider],
   bootstrap: [AppComponent, RegistroTareoComponent]
 })
 export class AppModule {}
