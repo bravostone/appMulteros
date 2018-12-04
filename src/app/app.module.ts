@@ -33,7 +33,13 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
     AsignacionGrupoComponent,
     AsignacionResponsableComponent
   ],
-  imports: [BrowserModule, FormsModule, HttpModule, routing, AngularFontAwesomeModule],
+  imports: [
+      BrowserModule, 
+      FormsModule, 
+      HttpModule, 
+      routing, 
+      AngularFontAwesomeModule
+    ],
   providers: [
     TareoService,
     LoginService,
@@ -41,6 +47,8 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
     appRoutingProvider,
     AsignacionResponsableService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule {}
