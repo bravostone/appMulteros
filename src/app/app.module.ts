@@ -2,12 +2,13 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
-import 'rxjs/Rx';
+import "rxjs/Rx";
 
 //Servicios
 import { LoginService } from "./services/login.service";
 import { TareoService } from "./services/registroTareo.service";
 import { UsuarioService } from "./services/shared/usuario.service";
+import { AsignacionResponsableService } from "./services/asignacion-responsable.service";
 
 //Rutas
 import { AppRoutingModule } from "./app-routing.module";
@@ -32,7 +33,7 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
     AsignacionResponsableComponent
   ],
   imports: [BrowserModule, FormsModule, HttpModule, AppRoutingModule],
-  providers: [TareoService, LoginService, UsuarioService],
+  providers: [TareoService, LoginService, UsuarioService, AsignacionResponsableService],
   bootstrap: [AppComponent, RegistroTareoComponent]
 })
 export class AppModule {}
