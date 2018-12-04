@@ -11,7 +11,7 @@ import { UsuarioService } from "./services/shared/usuario.service";
 import { AsignacionResponsableService } from "./services/asignacion-responsable.service";
 
 //Rutas
-import { AppRoutingModule } from "./app-routing.module";
+import { appRoutingProvider, routing } from "./app-routing.module";
 
 //Componentes
 import { AppComponent } from "./app.component";
@@ -32,8 +32,13 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
     AsignacionGrupoComponent,
     AsignacionResponsableComponent
   ],
+<<<<<<< HEAD
   imports: [BrowserModule, FormsModule, HttpModule, AppRoutingModule],
   providers: [TareoService, LoginService, UsuarioService, AsignacionResponsableService],
+=======
+  imports: [BrowserModule, FormsModule, HttpModule,routing],
+  providers: [TareoService, LoginService, UsuarioService,appRoutingProvider],
+>>>>>>> a697ff4dbe138c8c2fa19253d647bc309c5be041
   bootstrap: [AppComponent, RegistroTareoComponent]
 })
 export class AppModule {}
