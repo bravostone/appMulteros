@@ -1,20 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {RouterModule} from "@angular/router"
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
+import 'rxjs/Rx';
+
+//Servicios
+import { LoginService } from "./services/login.service";
+import { TareoService } from "./services/registroTareo.service";
+import { UsuarioService } from "./services/shared/usuario.service";
 
 //Rutas
-import {appRoutingProvider,routing} from './app-routing.module';
+import { appRoutingProvider, routing } from "./app-routing.module";
 
 //Componentes
-import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegistroTareoComponent } from './components/registroTareo/registroTareo.component';
-import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { MenuComponent } from './components/shared/menu/menu.component';
-import {AsignacionGrupoComponent} from './components/asignacionGrupo/asignacionGrupo.componente';
-import {AsignacionResponsableComponent} from './components/asignacionResponsable/asignacionResponsable.component';
+import { AppComponent } from "./app.component";
+import { LoginComponent } from "./components/login/login.component";
+import { RegistroTareoComponent } from "./components/registroTareo/registroTareo.component";
+import { NavbarComponent } from "./components/shared/navbar/navbar.component";
+import { MenuComponent } from "./components/shared/menu/menu.component";
+import { AsignacionGrupoComponent } from "./components/asignacionGrupo/asignacionGrupo.componente";
+import { AsignacionResponsableComponent } from "./components/asignacionResponsable/asignacionResponsable.component";
 
 @NgModule({
   declarations: [
@@ -25,15 +30,9 @@ import {AsignacionResponsableComponent} from './components/asignacionResponsable
     MenuComponent,
     AsignacionGrupoComponent,
     AsignacionResponsableComponent
-
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    routing
-  ],
-  providers: [appRoutingProvider],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, FormsModule, HttpModule,routing],
+  providers: [TareoService, LoginService, UsuarioService,appRoutingProvider],
+  bootstrap: [AppComponent, RegistroTareoComponent]
 })
-export class AppModule { }
+export class AppModule {}
