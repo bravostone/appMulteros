@@ -11,6 +11,6 @@ export class AsignacionResponsableComponent implements OnInit {
      }
   
     ngOnInit() {
-   
+       debugger;
     }
   }

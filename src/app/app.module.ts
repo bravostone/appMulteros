@@ -2,9 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {RouterModule} from "@angular/router"
 
 //Rutas
-import { AppRoutingModule } from './app-routing.module';
+import {appRoutingProvider,routing} from './app-routing.module';
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -30,9 +31,9 @@ import {AsignacionResponsableComponent} from './components/asignacionResponsable
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    routing
   ],
-  providers: [],
+  providers: [appRoutingProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
