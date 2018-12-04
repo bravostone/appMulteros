@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import "rxjs/Rx";
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 //Servicios
 import { LoginService } from "./services/login.service";
@@ -32,7 +33,7 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
     AsignacionGrupoComponent,
     AsignacionResponsableComponent
   ],
-  imports: [BrowserModule, FormsModule, HttpModule, routing],
+  imports: [BrowserModule, FormsModule, HttpModule, routing, AngularFontAwesomeModule],
   providers: [
     TareoService,
     LoginService,
