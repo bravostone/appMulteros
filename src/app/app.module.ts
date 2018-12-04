@@ -32,8 +32,14 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
     AsignacionGrupoComponent,
     AsignacionResponsableComponent
   ],
-  imports: [BrowserModule, FormsModule, HttpModule,routing],
-  providers: [TareoService, LoginService, UsuarioService,appRoutingProvider],
+  imports: [BrowserModule, FormsModule, HttpModule, routing],
+  providers: [
+    TareoService,
+    LoginService,
+    UsuarioService,
+    appRoutingProvider,
+    AsignacionResponsableService
+  ],
   bootstrap: [AppComponent, RegistroTareoComponent]
 })
 export class AppModule {}
