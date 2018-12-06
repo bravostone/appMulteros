@@ -15,8 +15,6 @@ export class MenuComponent implements OnInit {
 
   public open(opt)
   {
-    debugger;
-    this.router.navigate(['/login-component'])
   }
 
 }
