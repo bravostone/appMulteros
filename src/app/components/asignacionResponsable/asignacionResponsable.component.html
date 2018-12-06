@@ -10,7 +10,7 @@
                         <tr>
                             <td></td>
                             <td>Responsable Actual:</td>
-                            <td>{{asignacion.CodigoUsuarioActual}}</td>
+                            <td>{{asignacion.NombreCompleto}}</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -29,10 +29,10 @@
                             <td></td>
                             <td>Lista de Usuarios</td>
                             <td>
-                                <select [(ngModel)]="asignacion.CodigoUsuarioActual" name="usuario">
-                                    <option value="0">--Seleccionar--</option>
-                                    <option value="{{usuario.CodigoUsuario}}" 
-                                    *ngFor="let usuario of usuarios">{{usuario.NombreCompleto}}
+                                <select [(ngModel)]="asignacion.CodigoUsuarioActual" class="form-control" name="CodigoUsuarioActual">
+                                    <option value=0>--Seleccionar--</option>
+                                    <option value={{usuario.codigo_usuario}} 
+                                    *ngFor="let usuario of usuarios">{{usuario.nombre}}
                                     </option>
                                 </select>
                             </td>

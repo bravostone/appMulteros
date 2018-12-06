@@ -12,7 +12,8 @@ export class AsignacionResponsableService {
 
   constructor(private http:Http) { }
 
-  DatosURL:string ="";
+  DatosURL:string ="https://gymsolucionesdev-multeros.azurewebsites.net/api/Tareo/ObtenerTareoAnterior";
+  InsertarURL:string = "https://gymsolucionesdev-multeros.azurewebsites.net/api/Tareo/InsertarResponsable";
   
   ObtenerInfoResponsable(){
     let body = JSON.stringify("");
@@ -29,7 +30,7 @@ export class AsignacionResponsableService {
     let headers = new Headers({
       "Content-Type": "application/json"
     });
-    return this.http.post(this.DatosURL, body, { headers }).map(res => {
+    return this.http.post(this.InsertarURL, body, { headers }).map(res => {
       return res.json();
     });
   }

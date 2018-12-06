@@ -1,6 +1,6 @@
 export interface usuarioInterface{
-    CodigoUsuario:number;
-    NumeroDocumento:string;
-    NombreCompleto: string;
-    Alias:string;
+    codigo_usuario:number;
+    numero_documento:string;
+    nombre: string;
+    alias:string;
 }
