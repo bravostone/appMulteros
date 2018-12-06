@@ -10,6 +10,7 @@ import { LoginService } from "./services/login.service";
 import { TareoService } from "./services/registroTareo.service";
 import { UsuarioService } from "./services/shared/usuario.service";
 import { AsignacionResponsableService } from "./services/asignacion-responsable.service";
+import { StorageService } from "./services/storage.service";
 
 //Rutas
 import { appRoutingProvider, routing } from "./app-routing.module";
@@ -45,7 +46,8 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
     LoginService,
     UsuarioService,
     appRoutingProvider,
-    AsignacionResponsableService
+    AsignacionResponsableService,
+    StorageService
   ],
   bootstrap: [
     AppComponent

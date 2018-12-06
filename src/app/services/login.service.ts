@@ -1,20 +1,20 @@
 import {Injectable} from '@angular/core';
 import {Http , Headers} from '@angular/http';
 import { map } from "rxjs/operators";
-import {Login } from "../interfaces/login.interface"
+import { LoginObject } from "../interfaces/LoginObject"
 
 
 @Injectable()
 export class LoginService{
 
-    url_LoginAD: string = ""
+    url_LoginAD: string = "https://gymsolucionesdev-multeros.azurewebsites.net/api/Login/Autenticar"
 
     constructor(private http: Http){
     }
 
-    getLogin(login : Login){
+    getLogin(login : LoginObject){
 
-        let body    = JSON.stringify( login);
+        let body    = JSON.stringify(login);
         let headers = new Headers({
               'Content-Type': 'application/json; charset=utf-8',
           });
