@@ -21,6 +21,7 @@ UsuarioURL: string = "https://gymsolucionesdev-multeros.azurewebsites.net/api/Ta
       "Content-Type": "application/json"
     });
     return this.http.post(this.UsuarioURL, body, { headers }).map(res => {
+      //console.log(res.json());
       return res.json();
     });
   }
