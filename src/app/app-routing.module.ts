@@ -14,7 +14,7 @@ const appRoutes:Routes=[
   { path: 'asignacionResponsable', component: AsignacionResponsableComponent},
   { path: 'registroTareo', component: RegistroTareoComponent},
   { path: 'login-component' , component: LoginComponent},
-  { path: '' , pathMatch: 'full' ,redirectTo: 'menu'}
+  { path: '' , pathMatch: 'full' ,redirectTo: 'login-component'}
 ];
 
 export const appRoutingProvider:any[]=[];
