@@ -9,7 +9,7 @@
         <label for="inputPassword" class="sr-only">Contraseña</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="" [(ngModel)]="contrasenia" [ngModelOptions]="{standalone: true}">
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-keypress="submit">Ingresar</button>
         <p class="mt-5 mb-3 text-muted">© 2018-2019</p>
     </form>
 </body>
