@@ -11,6 +11,7 @@ import { TareoService } from "./services/registroTareo.service";
 import { UsuarioService } from "./services/shared/usuario.service";
 import { AsignacionResponsableService } from "./services/asignacion-responsable.service";
 import { StorageService } from "./services/storage.service";
+import { ReporteService } from "./services/reporte.service";
 
 //Rutas
 import { appRoutingProvider, routing } from "./app-routing.module";
@@ -35,7 +36,7 @@ import { ReporteIndivdualComponent } from './components/reporte-indivdual/report
     MenuComponent,
     AsignacionGrupoComponent,
     AsignacionResponsableComponent,
-    ReporteComponent
+    ReporteComponent,
     ReporteIndivdualComponent
   ],
   imports: [
@@ -51,7 +52,8 @@ import { ReporteIndivdualComponent } from './components/reporte-indivdual/report
     UsuarioService,
     appRoutingProvider,
     AsignacionResponsableService,
-    StorageService
+    StorageService,
+    ReporteService
   ],
   bootstrap: [
     AppComponent
