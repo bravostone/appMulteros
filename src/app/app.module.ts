@@ -23,7 +23,9 @@ import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { MenuComponent } from "./components/shared/menu/menu.component";
 import { AsignacionGrupoComponent } from "./components/asignacionGrupo/asignacionGrupo.componente";
 import { AsignacionResponsableComponent } from "./components/asignacionResponsable/asignacionResponsable.component";
+import { ReporteComponent } from './components/reporte/reporte.component';
 
+import { ReporteIndivdualComponent } from './components/reporte-indivdual/reporte-indivdual.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
     NavbarComponent,
     MenuComponent,
     AsignacionGrupoComponent,
-    AsignacionResponsableComponent
+    AsignacionResponsableComponent,
+    ReporteComponent
+    ReporteIndivdualComponent
   ],
   imports: [
       BrowserModule, 
