@@ -25,6 +25,7 @@ import { AsignacionGrupoComponent } from "./components/asignacionGrupo/asignacio
 import { AsignacionResponsableComponent } from "./components/asignacionResponsable/asignacionResponsable.component";
 import { ReporteComponent } from './components/reporte/reporte.component';
 
+import { ReporteIndivdualComponent } from './components/reporte-indivdual/reporte-indivdual.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { ReporteComponent } from './components/reporte/reporte.component';
     AsignacionGrupoComponent,
     AsignacionResponsableComponent,
     ReporteComponent
+    ReporteIndivdualComponent
   ],
   imports: [
       BrowserModule, 
