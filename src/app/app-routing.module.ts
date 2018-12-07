@@ -7,6 +7,7 @@ import {AsignacionResponsableComponent} from './components/asignacionResponsable
 import {AsignacionGrupoComponent} from './components/asignacionGrupo/asignacionGrupo.componente'
 import {MenuComponent} from './components/shared/menu/menu.component'
 import {LoginComponent} from './components/login/login.component'
+import {ReporteComponent} from './components/reporte/reporte.component'
 
 const appRoutes:Routes=[
   { path: 'menu', component: MenuComponent},
@@ -14,6 +15,7 @@ const appRoutes:Routes=[
   { path: 'asignacionResponsable', component: AsignacionResponsableComponent},
   { path: 'registroTareo', component: RegistroTareoComponent},
   { path: 'login-component' , component: LoginComponent},
+  { path: 'reporte-component' , component: ReporteComponent},
   { path: '' , pathMatch: 'full' ,redirectTo: 'login-component'}
 ];
 

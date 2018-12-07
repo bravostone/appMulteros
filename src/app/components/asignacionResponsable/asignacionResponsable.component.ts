@@ -4,7 +4,7 @@ import { asignacionResponsable } from "../../interfaces/asignacionResponsable.in
 import { AsignacionResponsableService } from "../../services/asignacion-responsable.service";
 import { usuarioInterface } from "../../interfaces/shared/usuario.interface";
 import { UsuarioService } from "../../services/shared/usuario.service";
-import { formatDate } from "@angular/common";
+import { formatDate, getLocaleDateFormat } from "@angular/common";
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -14,18 +14,14 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class AsignacionResponsableComponent implements OnInit {
   usuarios: usuarioInterface[] = [];
-  // fechaDesde: Date = new Date();
-  // fechaHasta: Date = new Date();
   nuevoCodigo: number = 0;
-  //asignacion: asignacionResponsable;
-  //<fechaHasta = this.fechaDesde.setDate(this.fechaDesde.getDate() + 1);
 
   asignacion: asignacionResponsable = {
-    CodigoUsuarioActual: 0,
+    CodigoUsuarioActual: 1,
     CodigoUsuarioAntiguo: 0,
-    NombreCompleto: "pruebin",
-    FechaInicioTareo: new Date(),
-    FechaFinTareo: new Date()
+    NombreCompleto: "Registro de Prueba",
+    FechaInicioTareo: this.CalcularLunes(), //new Date(),
+    FechaFinTareo: this.CalcularViernes() //this.addDays(this.fechaDesde, 5)
   };
   // formatDate(this.fechaHasta, "dd/MM/yyyy", "en")
   constructor(
@@ -34,10 +30,7 @@ export class AsignacionResponsableComponent implements OnInit {
     private _router: Router
   ) {
     this._usuarioService.obtenerUsuario().subscribe(dataUser => {
-      console.log(dataUser);
       this.usuarios = dataUser;
-      //console.log(dataUser);
-      console.log(this.usuarios);
     });
 
     this._AsignacionResponsableService
@@ -52,20 +45,30 @@ export class AsignacionResponsableComponent implements OnInit {
         // }
         //dataresp.CodigoUsuarioAntiguo = dataresp.CodigoUsuarioActual;
         //dataresp.CodigoUsuarioActual = 0;
-        this.asignacion = dataresp;
-        //console.log(this.asignacion)
+
+        if (Number(dataresp.CodigoUsuarioActual) != 0) {
+          this.asignacion = dataresp;
+        }
+        //this.asignacion = dataresp;
+        console.log(dataresp);
       });
   }
 
   ngOnInit() {}
 
-  guardar(nuevoCodigo: number) {
-    //debugger;
-    //this.asignacion.CodigoUsuarioActual = this.nuevoCodigo;
+  CalcularLunes(): Date {
+    let fechaActual:Date = new Date();
+    fechaActual.setDate(fechaActual.getDate() + (8 - fechaActual.getDay()));
+    return fechaActual;
+  }
 
-    //console.log(this.asignacion);
-    //console.log(this.usuarios);
-    debugger;
+  CalcularViernes(): Date {
+    let fechaActual:Date = new Date();
+    fechaActual.setDate(fechaActual.getDate() + (12 - fechaActual.getDay()));
+    return fechaActual;
+  }
+
+  guardar(nuevoCodigo: number) {
     if (Number(nuevoCodigo) == 0) {
       alert("Debe seleccionar un usuario");
       return;
@@ -75,23 +78,14 @@ export class AsignacionResponsableComponent implements OnInit {
 
       this._AsignacionResponsableService
         .InsertResponsable(this.asignacion)
-        .subscribe(data => { 
-          console.log(data)
-          alert("Usuario registrado correctamente!")
-          this._router.navigate(["/menu"]);
-         }, error => console.error(error));
+        .subscribe(
+          data => {
+            console.log(data);
+            alert("Usuario registrado correctamente!");
+            this._router.navigate(["/menu"]);
+          },
+          error => console.error(error)
+        );
     }
-
-    //this._router.navigate(["/menu"]);
-    // if ((this.asignacion.CodigoUsuarioActual = Number("0")))
-    // {
-    //   alert("oye no esta bien");
-    // }
-    // else
-    // {
-    //   this._AsignacionResponsableService
-    //     .InsertResponsable(this.asignacion)
-    //     .subscribe(data => {}, error => console.error(error));
-    // }
   }
 }
