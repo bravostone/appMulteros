@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { TareoService} from '../../services/registroTareo.service';
 import { Tareo, insertTareo  } from '../../interfaces/registroTareo.interface';
 import {Router} from '@angular/router'
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-registroTareo',
@@ -9,9 +10,7 @@ import {Router} from '@angular/router'
 })
 
 export class RegistroTareoComponent implements OnInit {
-
-  opcionSeleccionado: number  = 0;
-
+ 
   bandeja:Tareo = {
     dia: "",
     responsable: "",
@@ -27,8 +26,6 @@ export class RegistroTareoComponent implements OnInit {
 
   constructor(private _tareo : TareoService,
               private router : Router) {
-
-              console.log(this.opcionSeleccionado);
    }
 
   ngOnInit() {
@@ -55,21 +52,34 @@ export class RegistroTareoComponent implements OnInit {
 
   insertDatos(){
     
-    // this.datos.Lista[0].CodigoAsistencia = this.opcionSeleccionado;
-    // console.log(this.datos.Lista);
+    
+    let lineItems: any = [];
+    let myTable = document.getElementById("tblValues");
+    lineItems.length = 0;
 
-    this._tareo.insertTareo(this.datos).subscribe(
-      (data: any) =>{
-        if(data.Exito == true){
-            // alert("Se grabo de manera correcta!");
-            console.log("Se grabo de manera correcta!");
-        }
-        else{
-          // alert(data.Mensaje);
-          console.log("error");
-        }
-      }
-    );
+    for (var i = 0; i < myTable.childNodes.length ; i++) {
+        var rowItem = myTable.childNodes[i + 1];
+        console.log(rowItem);
+        lineItems.push({
+            // 
+            'codeusuario':myTable.childNodes[i].childNodes[2],
+            // 'codecombo':rowItem.childNodes[i].childNodes[3].childNodes[0]
+        });
+        debugger;
+    }
+
+    // this._tareo.insertTareo(this.datos).subscribe(
+    //   (data: any) =>{
+    //     if(data.Exito == true){
+    //         // alert("Se grabo de manera correcta!");
+    //         console.log("Se grabo de manera correcta!");
+    //     }
+    //     else{
+    //       // alert(data.Mensaje);
+    //       console.log("error");
+    //     }
+    //   }
+    // );
 
   }
 }

@@ -26,7 +26,6 @@ export class StorageService {
     this.currentUsuario = null;
   }
   getCurrentUser(): Usuario {
-    debugger;
     var session: Usuario = this.getCurrentSession();
     return session;
   };
