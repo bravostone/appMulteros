@@ -15,8 +15,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="row-name">Diana</td>
+                    <tr *ngFor="let item of listaTareos; let i = index">
+                        <td class="row-name">{{item.NombreCompleto}}</td>
                         <td>Multa</td>
                         <td>Comodín</td>
                         <td>Puntual</td>
