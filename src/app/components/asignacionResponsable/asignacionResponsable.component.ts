@@ -61,7 +61,6 @@ export class AsignacionResponsableComponent implements OnInit {
 
   ngOnInit() {
     this.user = this._storageService.getCurrentUser();
-    // console.log(this.user);
     this.asignacion.NombreCompleto = this.user.NombreCompleto;
   }
 
@@ -89,7 +88,7 @@ export class AsignacionResponsableComponent implements OnInit {
         .InsertResponsable(this.asignacion)
         .subscribe(
           data => {
-            console.log(data);
+            //console.log(data);
             alert("Usuario registrado correctamente!");
             this._router.navigate(["/menu"]);
           },
