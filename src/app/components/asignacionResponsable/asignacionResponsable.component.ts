@@ -6,6 +6,8 @@ import { usuarioInterface } from "../../interfaces/shared/usuario.interface";
 import { UsuarioService } from "../../services/shared/usuario.service";
 import { formatDate, getLocaleDateFormat } from "@angular/common";
 import { Router, ActivatedRoute } from "@angular/router";
+import { StorageService } from "../../services/storage.service";
+import { Usuario } from "../../interfaces/usuario.interface";
 
 @Component({
   selector: "app-asignacionResponsable",
@@ -15,20 +17,23 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class AsignacionResponsableComponent implements OnInit {
   usuarios: usuarioInterface[] = [];
   nuevoCodigo: number = 0;
+  user: Usuario;
 
   asignacion: asignacionResponsable = {
     CodigoUsuarioActual: 1,
     CodigoUsuarioAntiguo: 0,
-    NombreCompleto: "Registro de Prueba",
-    FechaInicioTareo: this.CalcularLunes(), //new Date(),
-    FechaFinTareo: this.CalcularViernes() //this.addDays(this.fechaDesde, 5)
+    NombreCompleto: "prueba",
+    FechaInicioTareo: this.CalcularLunes(),
+    FechaFinTareo: this.CalcularViernes()
   };
   // formatDate(this.fechaHasta, "dd/MM/yyyy", "en")
   constructor(
     private _usuarioService: UsuarioService,
     private _AsignacionResponsableService: AsignacionResponsableService,
-    private _router: Router
-  ) {
+    private _router: Router,
+    private _storageService: StorageService) 
+    
+    {
     this._usuarioService.obtenerUsuario().subscribe(dataUser => {
       this.usuarios = dataUser;
     });
@@ -50,20 +55,24 @@ export class AsignacionResponsableComponent implements OnInit {
           this.asignacion = dataresp;
         }
         //this.asignacion = dataresp;
-        console.log(dataresp);
+        //console.log(dataresp);
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = this._storageService.getCurrentUser();
+    // console.log(this.user);
+    this.asignacion.NombreCompleto = this.user.NombreCompleto;
+  }
 
   CalcularLunes(): Date {
-    let fechaActual:Date = new Date();
+    let fechaActual: Date = new Date();
     fechaActual.setDate(fechaActual.getDate() + (8 - fechaActual.getDay()));
     return fechaActual;
   }
 
   CalcularViernes(): Date {
-    let fechaActual:Date = new Date();
+    let fechaActual: Date = new Date();
     fechaActual.setDate(fechaActual.getDate() + (12 - fechaActual.getDay()));
     return fechaActual;
   }
