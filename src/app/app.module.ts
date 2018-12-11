@@ -13,6 +13,7 @@ import { UsuarioService } from "./services/shared/usuario.service";
 import { AsignacionResponsableService } from "./services/asignacion-responsable.service";
 import { StorageService } from "./services/storage.service";
 import { ReporteService } from "./services/reporte.service";
+import { ReporteIndividualService } from "./services/reporteIndividual.service";
 
 //Rutas
 import { appRoutingProvider, routing } from "./app-routing.module";
@@ -55,7 +56,8 @@ import { ReporteIndivdualComponent } from "./components/reporte-indivdual/report
     appRoutingProvider,
     AsignacionResponsableService,
     StorageService,
-    ReporteService
+    ReporteService,
+    ReporteIndividualService
   ],
   bootstrap: [AppComponent]
 })
