@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import "rxjs/Rx";
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { NgDragDropModule } from 'ng-drag-drop';
 
 //Servicios
 import { LoginService } from "./services/login.service";
@@ -45,7 +46,8 @@ import { ReporteIndivdualComponent } from './components/reporte-indivdual/report
       FormsModule, 
       HttpModule, 
       routing, 
-      AngularFontAwesomeModule
+      AngularFontAwesomeModule,
+      NgDragDropModule.forRoot()
     ],
   providers: [
     TareoService,
