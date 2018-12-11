@@ -66,7 +66,7 @@ export class RegistroTareoComponent implements OnInit {
         'CodigoAsistencia'  : $(rowItem).find('td:gt(2)').find("select").val()
       });
     }
-    debugger;  
+ 
     this.datos.Lista = lineItems;
 
      this._tareo.insertTareo(this.datos).subscribe(

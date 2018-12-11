@@ -1,4 +1,7 @@
 import { Component,OnInit } from '@angular/core';
+import { usuarioInterface } from "../../interfaces/shared/usuario.interface";
+import { UsuarioService } from "../../services/shared/usuario.service";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-asignacionGrupo',
@@ -8,18 +11,24 @@ import { Component,OnInit } from '@angular/core';
 
 export class AsignacionGrupoComponent implements OnInit {
 
-    items = [
-        {name: "Apple", type: "fruit"},
-        {name: "Carrot", type: "vegetable"},
-        {name: "Orange", type: "fruit"}];
+    usuarios: usuarioInterface[] = [];
         
-onItemDrop(e: any) {
-    // Get the dropped data here
-    //this.droppedItems.push(e.dragData);
-}
-constructor() { }
+    constructor(private _usuarioService: UsuarioService,
+            private router : Router) {}
   
     ngOnInit() {
-   
+       this.getDatos();
+    }
+
+    getDatos(){
+        debugger;
+        this._usuarioService.obtenerUsuario().subscribe(dataUser => {
+            this.usuarios = dataUser;
+            console.log(dataUser);
+            });
+    }
+
+    insertGrupos(){
+
     }
   }

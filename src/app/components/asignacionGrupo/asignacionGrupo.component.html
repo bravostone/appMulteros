@@ -1,24 +1,46 @@
 <app-navbar></app-navbar>
-<h6>npm install ng-drag-drop --save</h6>
+<!-- <h6>npm install ng-drag-drop --save</h6> -->
 
-<h3>Transfer Data via Drag Drop</h3>
+<br/>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <strong>Registro de Grupos</strong> - Mes Noviembre
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="insertGrupos()" #forma="ngForm" enctype="multipart/form-data" class="form-horizontal">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <ul class="list-group">
+                            <li class="list-group-item" style="background-color: coral;">Lista de Usuarios</li>
+                            <li draggable *ngFor="let item of usuarios" [dragData]="item" class="list-group-item">{{item.nombre}}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-sm-3">
+                            <ul class="list-group">
+                                <li class="list-group-item" style="background-color: blue;">Grupo A</li>
+                                <!-- <li draggable *ngFor="let item of items" [dragData]="item" class="list-group-item">{{item.name}}</li> -->
+                            </ul>
+                        </div>
+                        
+                        <div class="col-sm-3">
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="background-color: blue;">Grupo B</li>
+                                    <!-- <li draggable *ngFor="let item of items" [dragData]="item" class="list-group-item">{{item.name}}</li> -->
+                                </ul>
+                            </div>
 
-<div class="row">
-    <div class="col-sm-3">
-        <ul class="list-group">
-            <li draggable *ngFor="let item of items" [dragData]="item" class="list-group-item">{{item.name}}</li>
-        </ul>
-    </div>
-    
-    <div class="col-sm-3">
-    <div class="panel panel-default" droppable (onDrop)="onItemDrop($event)">
-        <div class="panel-heading">Drop Items here</div>
-            <div class="panel-body">
-                <!-- <li *ngFor="let item of droppedItems" class="list-group-item">{{item.name}}</li> -->
-            </div>
+                            <div class="col-sm-3">
+                                    <ul class="list-group">
+                                        <li class="list-group-item" style="background-color: blue;">Grupo C</li>
+                                        <!-- <li draggable *ngFor="let item of items" [dragData]="item" class="list-group-item">{{item.name}}</li> -->
+                                    </ul>
+                                </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-<div draggable  [dragHandleClass] = "'my-draggable'"> 
- <p> Soltar articulos aqui </p>
-</div> 
+
+
