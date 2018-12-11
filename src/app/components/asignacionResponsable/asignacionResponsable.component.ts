@@ -11,8 +11,7 @@ import { Usuario } from "../../interfaces/usuario.interface";
 
 @Component({
   selector: "app-asignacionResponsable",
-  templateUrl: "./asignacionResponsable.component.html",
-  styles: []
+  templateUrl: "./asignacionResponsable.component.html"
 })
 export class AsignacionResponsableComponent implements OnInit {
   usuarios: usuarioInterface[] = [];
