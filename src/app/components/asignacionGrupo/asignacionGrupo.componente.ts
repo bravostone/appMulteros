@@ -2,7 +2,8 @@ import { Component,OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-asignacionGrupo',
-    templateUrl: './asignacionGrupo.component.html'
+    templateUrl: './asignacionGrupo.component.html'//,
+    // styleUrls: ['./asignacionGrupo.component.css']
 })
 
 export class AsignacionGrupoComponent implements OnInit {
