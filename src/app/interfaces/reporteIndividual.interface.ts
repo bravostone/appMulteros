@@ -4,7 +4,7 @@ export interface ReporteIndividualRequest{
     MesActual: number;
 }
 
-export interface ReporteResponse{
+export interface ReporteIndividualResponse{
     NombreCompleto: string;
     puntos_mes: string;    
 }
