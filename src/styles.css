@@ -3,7 +3,6 @@ body{
   padding-bottom: 50px;
 }
 
-
 .main-container{
     margin-top: 20px
 }
@@ -36,3 +35,5 @@ body{
   .fadeIn {
     animation-name: fadeIn;
   }
+
+  

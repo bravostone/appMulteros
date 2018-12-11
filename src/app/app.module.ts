@@ -3,8 +3,8 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import "rxjs/Rx";
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { NgDragDropModule } from 'ng-drag-drop';
+import { AngularFontAwesomeModule } from "angular-font-awesome";
+import { NgDragDropModule } from "ng-drag-drop";
 
 //Servicios
 import { LoginService } from "./services/login.service";
@@ -26,9 +26,9 @@ import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { MenuComponent } from "./components/shared/menu/menu.component";
 import { AsignacionGrupoComponent } from "./components/asignacionGrupo/asignacionGrupo.componente";
 import { AsignacionResponsableComponent } from "./components/asignacionResponsable/asignacionResponsable.component";
-import { ReporteComponent } from './components/reporte/reporte.component';
+import { ReporteComponent } from "./components/reporte/reporte.component";
 
-import { ReporteIndivdualComponent } from './components/reporte-indivdual/reporte-indivdual.component';
+import { ReporteIndivdualComponent } from "./components/reporte-indivdual/reporte-indivdual.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,13 +42,13 @@ import { ReporteIndivdualComponent } from './components/reporte-indivdual/report
     ReporteIndivdualComponent
   ],
   imports: [
-      BrowserModule, 
-      FormsModule, 
-      HttpModule, 
-      routing, 
-      AngularFontAwesomeModule,
-      NgDragDropModule.forRoot()
-    ],
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    routing,
+    AngularFontAwesomeModule,
+    NgDragDropModule.forRoot()
+  ],
   providers: [
     TareoService,
     LoginService,
@@ -59,8 +59,6 @@ import { ReporteIndivdualComponent } from './components/reporte-indivdual/report
     ReporteService,
     ReporteIndividualService
   ],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
