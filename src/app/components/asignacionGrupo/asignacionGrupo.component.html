@@ -1,17 +1,8 @@
 <app-navbar></app-navbar>
 <h6>npm install ng-drag-drop --save</h6>
 
-<!-- <ul>
-    <li draggable>Coffee</li>
-    <li draggable>Tea</li>
-    <li draggable>Milk</li>
-  </ul> 
+<h3>Transfer Data via Drag Drop</h3>
 
-  <div droppable>
-    <p>Drop items here</p>
-  </div>    -->
-
-  <h3>Transfer Data via Drag Drop</h3>
 <div class="row">
     <div class="col-sm-3">
         <ul class="list-group">
@@ -28,3 +19,6 @@
         </div>
     </div>
 </div>
+<div draggable  [dragHandleClass] = "'my-draggable'"> 
+ <p> Soltar articulos aqui </p>
+</div> 
