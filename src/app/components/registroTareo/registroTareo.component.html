@@ -32,7 +32,7 @@
                     <i class="fa fa-align-justify"></i> Combined All Table
                     </div> -->
                         <div class="card-body">
-                            <table class="table table-bordered table-striped table-sm" id="tblValues" >
+                            <table class="table table-bordered table-striped table-sm" id="tblValues">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -47,7 +47,7 @@
                                         <td>{{item.codigo_usuario}}</td>
                                         <td>{{item.NombreCompleto}}</td>
                                         <td>
-                                            <select  class="custom-select" name="opcionSeleccionado">
+                                            <select class="custom-select" name="opcionSeleccionado">
                                                 <option value="0">Selecciona una opción</option>
                                                 <option value="{{item2.codigo_parametro}}" *ngFor="let item2 of bandeja.listaAsistencia;">
                                                                {{item2.descripcion_valor}}</option>
@@ -61,18 +61,23 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <nav>
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                                    <li class="page-item active">
-                                        <a class="page-link" href="#">1</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </nav>
+                            <div *ngIf="bandeja.listaUsuario.length === 0" class="alert alert-info" role="alert">
+                                <strong>Todos los usuarios han sido tareados.</strong>
+                            </div>
+                            <div *ngIf="bandeja.listaUsuario.length > 0" class="alert alert-info" role="alert">
+                                <nav>
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#">1</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                         <!-- </div> -->
                     </div>
