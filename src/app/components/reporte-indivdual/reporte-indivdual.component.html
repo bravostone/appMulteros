@@ -7,21 +7,13 @@
                 <thead>
                     <tr>
                         <th class="row-name">Nombre</th>
-                        <th>Lunes</th>
-                        <th>Martes</th>
-                        <th>Miércoles</th>
-                        <th>Jueves</th>
-                        <th>Viernes</th>
+                        <th>Puntos</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="row-name">NombreCompleto</td>
-                        <td>Multa</td>
-                        <td>Comodín</td>
-                        <td>Puntual</td>
-                        <td>Puntual</td>
-                        <td>Puntual</td>
+                    <tr *ngFor="let item of listaDatos; let i = index">
+                        <td class="row-name">{{item.NombreCompleto}}</td>
+                        <td>{{item.puntos_mes}}</td>
                     </tr>
                     <!-- <tr *ngFor="let item of bandeja.listaUsuario; let i = index">
                         <td>{{i + 1}}</td>
