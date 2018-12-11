@@ -11,7 +11,7 @@ import 'rxjs/add/operator/catch';
   providedIn: 'root'
 })
 export class UsuarioService {
-UsuarioURL: string = "https://gymsolucionesdev-multeros.azurewebsites.net/api/Tareo/ListarUsuarios";
+UsuarioURL: string = "https://gymsolucionesdev-multeros.azurewebsites.net/api/Tareo/ListarUsuarios2";
 
   constructor(private http:Http) { }
 
