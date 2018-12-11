@@ -11,8 +11,7 @@ import { Usuario } from "../../interfaces/usuario.interface";
 
 @Component({
   selector: "app-asignacionResponsable",
-  templateUrl: "./asignacionResponsable.component.html",
-  styles: []
+  templateUrl: "./asignacionResponsable.component.html"
 })
 export class AsignacionResponsableComponent implements OnInit {
   usuarios: usuarioInterface[] = [];
@@ -62,6 +61,7 @@ export class AsignacionResponsableComponent implements OnInit {
   ngOnInit() {
     this.user = this._storageService.getCurrentUser();
     this.asignacion.NombreCompleto = this.user.NombreCompleto;
+    this.asignacion.CodigoUsuarioActual = this.user.codigo_usuario;
   }
 
   CalcularLunes(): Date {
