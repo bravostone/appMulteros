@@ -29,6 +29,8 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
 import { ReporteComponent } from "./components/reporte/reporte.component";
 
 import { ReporteIndivdualComponent } from "./components/reporte-indivdual/reporte-indivdual.component";
+import { ChartModule } from 'angular-highcharts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,8 @@ import { ReporteIndivdualComponent } from "./components/reporte-indivdual/report
     HttpModule,
     routing,
     AngularFontAwesomeModule,
-    NgDragDropModule.forRoot()
+    NgDragDropModule.forRoot(),
+    ChartModule
   ],
   providers: [
     TareoService,
