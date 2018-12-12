@@ -48,7 +48,8 @@ export class ReporteIndivdualComponent implements OnInit {
         series: [
           {
             name: 'total Puntos',
-            colorIndex: 6,                        
+            colorIndex: 6,
+            pointWidth:20,
             data: this.ListaPuntos
           }
         ]
