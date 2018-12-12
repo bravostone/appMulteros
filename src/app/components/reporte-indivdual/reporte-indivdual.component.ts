@@ -10,32 +10,41 @@ import { Chart } from 'angular-highcharts';
   styleUrls: ['./reporte-indivdual.component.css']  
 })
 export class ReporteIndivdualComponent implements OnInit {
-  chart = new Chart({
-    chart: {
-      type: 'column'
-    },
-    title: {
-      text: 'Puntos Individuales del Mes'
-    },
-    credits: {
-      enabled: false
-    },
-    xAxis: {
-      categories: ['CEsareo', 'Diana', 'Alexi', 'Piero', 'Leo', 'Adriana', 'Cynthia']
-    },
-    series: [
-      {
-        name: 'Line 1',
-        data: [1, 2, 3]
-      }
-    ]
-  });
-  listaDatos : ReporteIndividualResponse;
+  chart = null;
+  public ListaPuntos: number[] = [];
+  public ListaNombres: string[] = [];
+  listaDatos : ReporteIndividualResponse[];
   request : ReporteIndividualRequest;
   constructor(private _reporte : ReporteIndividualService) { }
 
   ngOnInit() {
-    //this.getDatos();
+    this.getDatos();
+    setTimeout(() => {
+      this.setArmarArrays();
+    }, 2000);
+    
+    setTimeout(() => {
+      this.chart = new Chart({
+        chart: {
+          type: 'column'
+        },
+        title: {
+          text: 'Puntos Individuales del Mes'
+        },
+        credits: {
+          enabled: false
+        },
+        xAxis: {
+          categories: this.ListaNombres
+        },
+        series: [
+          {
+            name: 'Puntos',
+            data: this.ListaPuntos
+          }
+        ]
+      });
+    }, 2000);    
   }
 
   getDatos(){
@@ -47,10 +56,20 @@ export class ReporteIndivdualComponent implements OnInit {
 
     this._reporte.getReporteIndividual(this.request).subscribe(
       (data: any) =>{
+          //console.log(data);
           this.listaDatos = data
+          //console.log(this.listaDatos);
       }
-    );
-
+    );    
+  }
+  setArmarArrays(){
+    console.log("pintar lista datos asignados");
+    console.log(this.listaDatos);
+    let i:Number = 0;
+    for(let item of this.listaDatos){
+      this.ListaNombres.push(item.NombreCompleto);
+      this.ListaPuntos.push(parseInt(item.puntos_mes));
+    }
   }
   // add point to chart serie
   add() {
