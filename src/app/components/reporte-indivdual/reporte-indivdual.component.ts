@@ -26,7 +26,7 @@ export class ReporteIndivdualComponent implements OnInit {
     setTimeout(() => {
       this.chart = new Chart({
         chart: {
-          type: 'column'
+          type: 'bar'
         },
         title: {
           text: 'Puntos Individuales del Mes'
@@ -35,11 +35,20 @@ export class ReporteIndivdualComponent implements OnInit {
           enabled: false
         },
         xAxis: {
-          categories: this.ListaNombres
+          categories: this.ListaNombres                    
         },
+        yAxis: { 
+          //tickInterval: 1,
+          allowDecimals: false,
+          title: {
+            text: '', //values
+            align: 'high'
+        } 
+         }, 
         series: [
           {
-            name: 'Puntos',
+            name: 'total Puntos',
+            colorIndex: 6,                        
             data: this.ListaPuntos
           }
         ]
