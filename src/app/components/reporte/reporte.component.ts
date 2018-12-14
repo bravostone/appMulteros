@@ -14,7 +14,9 @@ export class ReporteComponent implements OnInit {
   listaTareos: ReporteResponse;
   request: ReporteRequest;
   listaSemana: Semana;
-
+  listaAnios: number[] = [2018,2019];
+  anio: number;
+  semana: number;
   constructor(private _reporte : ReporteService, private _semana : SemanaService) { }
 
   ngOnInit() {
@@ -25,8 +27,8 @@ export class ReporteComponent implements OnInit {
 
   getDatos(){
     this.request = {
-      YearActual: 2018, 
-      SemanaActual: 50
+      YearActual: this.anio, 
+      SemanaActual: this.semana
     };
 
     this._reporte.getTareos(this.request).subscribe(
@@ -40,7 +42,7 @@ export class ReporteComponent implements OnInit {
   getSemana(){
     this._semana.getSemana().subscribe(
       (data: any) =>{
-          this.listaSemana = data
+          this.listaSemana = data.Semanas
       }
     );
 
