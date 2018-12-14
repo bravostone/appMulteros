@@ -97,7 +97,7 @@ export class ReporteIndivdualComponent implements OnInit {
       MesActual: mes
     };
     console.log(this.request);
-    
+
     this.getDatos();
      setTimeout(() => {
       this.setArmarArrays();
@@ -140,6 +140,8 @@ export class ReporteIndivdualComponent implements OnInit {
     console.log("pintar lista datos asignados");
     console.log(this.listaDatos);
     let i:Number = 0;
+    this.ListaNombres = [];
+    this.ListaPuntos = [];
     for(let item of this.listaDatos){
       this.ListaNombres.push(item.NombreCompleto);
       this.ListaPuntos.push(parseInt(item.puntos_mes));
