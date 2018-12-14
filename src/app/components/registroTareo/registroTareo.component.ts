@@ -52,34 +52,34 @@ export class RegistroTareoComponent implements OnInit {
   }
 
   insertDatos(){
-    
-    
-    debugger;
+
     let lineItems: any = [];
     let myTable = document.getElementById("tblValues");
     lineItems.length = 0;
-    var table = myTable.childNodes[1];
     
+    var table = myTable.childNodes[1];
+
     for(var i = 0; i < table.childNodes.length - 1 ; i++ )
     {
-      debugger;
       var rowItem = table.childNodes[i + 1];
-      alert($(rowItem).find('td:gt(0)').text());
-      alert($(rowItem).find('td:gt(2)').find("select").val());
+      lineItems.push({
+        'CodigoUsuario': $(rowItem).find('td:gt(0)').first().text(),
+        'CodigoAsistencia'  : $(rowItem).find('td:gt(2)').find("select").val()
+      });
     }
+ 
+    this.datos.Lista = lineItems;
 
-    // this._tareo.insertTareo(this.datos).subscribe(
-    //   (data: any) =>{
-    //     if(data.Exito == true){
-    //         // alert("Se grabo de manera correcta!");
-    //         console.log("Se grabo de manera correcta!");
-    //     }
-    //     else{
-    //       // alert(data.Mensaje);
-    //       console.log("error");
-    //     }
-    //   }
-    // );
+     this._tareo.insertTareo(this.datos).subscribe(
+       (data: any) =>{
+         if(data.Exito == true){
+             alert(data.Mensaje);
+         }
+         else{
+           alert(data.Mensaje);
+         }
+       }
+     );
 
   }
 }

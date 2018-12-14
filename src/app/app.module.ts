@@ -3,7 +3,8 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import "rxjs/Rx";
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { AngularFontAwesomeModule } from "angular-font-awesome";
+import { NgDragDropModule } from "ng-drag-drop";
 
 //Servicios
 import { LoginService } from "./services/login.service";
@@ -13,6 +14,7 @@ import { AsignacionResponsableService } from "./services/asignacion-responsable.
 import { StorageService } from "./services/storage.service";
 import { ReporteService } from "./services/reporte.service";
 import { SemanaService } from "./services/shared/semana.service";
+import { ReporteIndividualService } from "./services/reporteIndividual.service";
 
 //Rutas
 import { appRoutingProvider, routing } from "./app-routing.module";
@@ -25,9 +27,11 @@ import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { MenuComponent } from "./components/shared/menu/menu.component";
 import { AsignacionGrupoComponent } from "./components/asignacionGrupo/asignacionGrupo.componente";
 import { AsignacionResponsableComponent } from "./components/asignacionResponsable/asignacionResponsable.component";
-import { ReporteComponent } from './components/reporte/reporte.component';
+import { ReporteComponent } from "./components/reporte/reporte.component";
 
-import { ReporteIndivdualComponent } from './components/reporte-indivdual/reporte-indivdual.component';
+import { ReporteIndivdualComponent } from "./components/reporte-indivdual/reporte-indivdual.component";
+import { ChartModule } from 'angular-highcharts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,12 +45,14 @@ import { ReporteIndivdualComponent } from './components/reporte-indivdual/report
     ReporteIndivdualComponent
   ],
   imports: [
-      BrowserModule, 
-      FormsModule, 
-      HttpModule, 
-      routing, 
-      AngularFontAwesomeModule
-    ],
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    routing,
+    AngularFontAwesomeModule,
+    NgDragDropModule.forRoot(),
+    ChartModule
+  ],
   providers: [
     TareoService,
     LoginService,
@@ -55,10 +61,9 @@ import { ReporteIndivdualComponent } from './components/reporte-indivdual/report
     AsignacionResponsableService,
     StorageService,
     ReporteService,
-    SemanaService
+    SemanaService,
+    ReporteIndividualService
   ],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

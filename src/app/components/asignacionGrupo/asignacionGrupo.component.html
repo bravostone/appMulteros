@@ -1,3 +1,56 @@
 <app-navbar></app-navbar>
-<div>asignación grupo</div>
-<div>Hola</div>
+<!-- <h6>npm install ng-drag-drop --save</h6> -->
+
+<br/>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <strong>Registro de Grupos</strong> - Mes Noviembre
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="insertGrupos()" #forma="ngForm" enctype="multipart/form-data" class="form-horizontal">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <ul class="list-group">
+                            <li class="list-group-item" style="background-color: coral;">Lista de Usuarios</li>
+                            <li draggable *ngFor="let item of usuarios" [dragData]="item" class="list-group-item">{{item.nombre}}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-sm-3" droppable >
+                            <ul class="list-group">
+                                <li class="list-group-item" style="background-color: blue;">Grupo A</li>
+                                <!-- <li draggable *ngFor="let item of items" [dragData]="item" class="list-group-item">{{item.name}}</li> -->
+                            </ul>
+                        </div>
+                        
+                    <div class="col-sm-3" droppable >
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="background-color: blue;">Grupo B</li>
+                                    <!-- <li draggable *ngFor="let item of items" [dragData]="item" class="list-group-item">{{item.name}}</li> -->
+                                </ul>
+                        </div>
+
+                  <div class="col-sm-3" droppable >
+                        <div class="list-group" droppable (onDrop)="onItemDrop($event)">
+                            <div class="list-group-item" style="background-color: blue;">Grupo C</div>
+                                <div class="panel-body">
+                                    <li *ngFor="let item of droppedItems" class="list-group-item">{{item.nombre}}</li>
+                                </div>
+                            </div>
+
+                        </div>
+
+                            <!-- <div class="col-sm-3" droppable >
+                                    <ul class="list-group">
+                                        <li class="list-group-item" style="background-color: blue;">Grupo C</li>
+                                    </ul>
+                                </div> -->
+                                
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

@@ -1,3 +1,43 @@
-<p>
-  reporte-indivdual works!
-</p>
+<app-navbar></app-navbar>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <strong>Reporte Individual</strong>
+        </div>
+        <div class="card-body">
+            <form #forma="ngForm">
+
+                <div class="row">
+                    <label class="col-md-2 col-form-label" for="disabled-input">Año:</label>
+                    <div class="col-md-3">
+                        <select [(ngModel)]="anio" name="anio" class="custom-select">
+                                        <option value="0">--Seleccionar--</option>
+                                        <option [value]="usuario.codigo_usuario"
+                                        *ngFor="let usuario of usuarios">{{usuario.nombre}}
+                                        </option>
+                                    </select>
+                    </div>
+                    <label class="col-md-2 col-form-label" for="disabled-input">Mes:</label>
+                    <div class="col-md-3">
+                        <select [(ngModel)]="mes" name="mes" class="custom-select">
+                                        <option value="0">--Seleccionar--</option>
+                                        <option [value]="usuario.codigo_usuario"
+                                        *ngFor="let usuario of usuarios">{{usuario.nombre}}
+                                        </option>
+                                    </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 col-form-label">
+                        <button [routerLink]="['/menu']" routerLinkActive="active" class="btn btn-outline-danger">Retornar</button>
+                    </div>
+                    <div class="col-md-1 col-form-label">
+                        <button type="button" (click)="guardar(nuevoCodigo)" class="btn btn-outline-primary">Mostrar Reporte</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <button (click)="add()">Add Point!</button> -->
+<div [chart]="chart"></div>
