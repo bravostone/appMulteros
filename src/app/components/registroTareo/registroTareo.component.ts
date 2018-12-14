@@ -3,6 +3,7 @@ import { TareoService} from '../../services/registroTareo.service';
 import { Tareo, insertTareo  } from '../../interfaces/registroTareo.interface';
 import {Router} from '@angular/router'
 import { element } from 'protractor';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-registroTareo',
@@ -53,19 +54,18 @@ export class RegistroTareoComponent implements OnInit {
   insertDatos(){
     
     
+    debugger;
     let lineItems: any = [];
     let myTable = document.getElementById("tblValues");
     lineItems.length = 0;
-
-    for (var i = 0; i < myTable.childNodes.length ; i++) {
-        var rowItem = myTable.childNodes[i + 1];
-        console.log(rowItem);
-        lineItems.push({
-            // 
-            'codeusuario':myTable.childNodes[i].childNodes[2],
-            // 'codecombo':rowItem.childNodes[i].childNodes[3].childNodes[0]
-        });
-        debugger;
+    var table = myTable.childNodes[1];
+    
+    for(var i = 0; i < table.childNodes.length - 1 ; i++ )
+    {
+      debugger;
+      var rowItem = table.childNodes[i + 1];
+      alert($(rowItem).find('td:gt(0)').text());
+      alert($(rowItem).find('td:gt(2)').find("select").val());
     }
 
     // this._tareo.insertTareo(this.datos).subscribe(

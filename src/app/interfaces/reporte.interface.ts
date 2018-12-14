@@ -5,6 +5,9 @@ export interface ReporteRequest{
 
 export interface ReporteResponse{
     NombreCompleto: string;
-    TipoAsistencia: string;
-    NombreDiaSemana: string;
+    Lunes: string;
+    Martes: string;
+    Miercoles: string;
+    Jueves: string;
+    Viernes: string;
 }

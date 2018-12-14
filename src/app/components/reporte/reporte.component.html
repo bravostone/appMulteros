@@ -17,11 +17,11 @@
                 <tbody>
                     <tr *ngFor="let item of listaTareos; let i = index">
                         <td class="row-name">{{item.NombreCompleto}}</td>
-                        <td>Multa</td>
-                        <td>Comodín</td>
-                        <td>Puntual</td>
-                        <td>Puntual</td>
-                        <td>Puntual</td>
+                        <td ng-class='{red : (item.Lunes == "Multa")}'>{{item.Lunes}}</td>
+                        <td>{{item.Martes}}</td>
+                        <td>{{item.Miercoles}}</td>
+                        <td>{{item.Jueves}}</td>
+                        <td>{{item.Viernes}}</td>
                     </tr>
                     <!-- <tr *ngFor="let item of bandeja.listaUsuario; let i = index">
                         <td>{{i + 1}}</td>
