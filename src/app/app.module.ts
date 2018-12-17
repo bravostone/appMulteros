@@ -64,13 +64,10 @@ import { ChartModule } from 'angular-highcharts';
     AsignacionResponsableService,
     StorageService,
     ReporteService,
-<<<<<<< HEAD
     ReporteIndividualService,
-    ReportePorEquipoService
-=======
+    ReportePorEquipoService,
     SemanaService,
     ReporteIndividualService
->>>>>>> be3d41162a0b6fa21abf3c282835cda1e0fedb5f
   ],
   bootstrap: [AppComponent]
 })
