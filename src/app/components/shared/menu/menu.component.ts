@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from "../../../interfaces/usuario.interface";
+import {StorageService} from "../.../../../../services/storage.service";
 
 @Component({
   selector: 'app-menu',
@@ -8,14 +10,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class MenuComponent implements OnInit {
   // public isEnabled:boolean=false;
-  
-  constructor() { }
+  user: Usuario;
+
+  constructor(private storageService: StorageService) { }
 
   ngOnInit() {
-  }
-
-  public open(opt)
-  {
+    this.user = this.storageService.getCurrentUser();
   }
 
 }

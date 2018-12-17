@@ -21,15 +21,12 @@
                         <select [(ngModel)]="semana" name="mes" class="custom-select">
                                         <option value="0" [selected]>--Seleccionar--</option>
                                         <option [value]="semana.semana"
-                                        *ngFor="let semana of listaSemana">{{semana.semana}}
+                                        *ngFor="let semana of listaSemana">{{semana.semana}} ({{semana.fecha_inicio}} - {{semana.fecha_fin}})
                                         </option>
                                     </select>
                     </div>
                     <div class="col-md-2">
                         <button type="button" (click)="getDatos(anio,semana)" class="btn btn-outline-primary">Mostrar Reporte</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button type="button" [routerLink]="['/reporte-individual']" class="btn btn-outline-danger">Ir Reporte Individual</button>
                     </div>
                 </div>
                 <!-- <div class="row">
@@ -47,19 +44,24 @@
                 <thead>
                     <tr>
                         <th class="row-name">Nombre</th>
-                        <th>Lunes</th>
-                        <th>Martes</th>
-                        <th>Miércoles</th>
-                        <th>Jueves</th>
-                        <th>Viernes</th>
+                        <th class="row-align">Lunes</th>
+                        <th class="row-align">Martes</th>
+                        <th class="row-align">Miércoles</th>
+                        <th class="row-align">Jueves</th>
+                        <th class="row-align">Viernes</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of listaTareos; let i = index">
                         <td class="row-name">{{item.NombreCompleto}}</td>
-                        <td ng-class='{red : (item.Lunes == "Multa")}'>{{item.Lunes}}</td>
+                        <td ng-class="{'red': (item.Lunes == 'Multa'), 'yellow': (item.Lunes == 'Comodin'), 'wheat': (item.Lunes == 'Permiso')}">{{item.Lunes}}</td>
                         <td>{{item.Martes}}</td>
-                        <td>{{item.Miercoles}}</td>
+                        <td [ngClass]="{
+                            'red':item.Miercoles === 'Multa',
+                            'yellow':item.Miercoles === 'Comodin',
+                            'green':item.Miercoles === 'Puntual',
+                            'wheat':item.Miercoles === 'Permiso'
+                          }">{{item.Miercoles}}</td>
                         <td>{{item.Jueves}}</td>
                         <td>{{item.Viernes}}</td>
                     </tr>

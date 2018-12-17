@@ -1,9 +1,29 @@
 .row-name {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background-color: aquamarine
+    background-color: lightgray
 }
 
 .red {
-    color: red;
+    background-color: lightcoral;
+    text-align: center;
+}
+
+.yellow {
+    background-color: lightgoldenrodyellow;
+    text-align: center;
+}
+
+.wheat {
+    background-color: lightblue;
+    text-align: center;
+}
+
+.green {
+    background-color: lightgreen;
+    text-align: center;
+}
+
+.row-align {
+    text-align: center;
 }
