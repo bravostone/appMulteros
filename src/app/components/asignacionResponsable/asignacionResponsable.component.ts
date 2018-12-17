@@ -66,13 +66,13 @@ export class AsignacionResponsableComponent implements OnInit {
 
   CalcularLunes(): Date {
     let fechaActual: Date = new Date();
-    fechaActual.setDate(fechaActual.getDate() + (8 - fechaActual.getDay()));
+    fechaActual.setDate(fechaActual.getDate() + (1 - fechaActual.getDay()));
     return fechaActual;
   }
 
   CalcularViernes(): Date {
     let fechaActual: Date = new Date();
-    fechaActual.setDate(fechaActual.getDate() + (12 - fechaActual.getDay()));
+    fechaActual.setDate(fechaActual.getDate() + (5 - fechaActual.getDay()));
     return fechaActual;
   }
 

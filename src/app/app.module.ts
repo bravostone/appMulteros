@@ -14,6 +14,7 @@ import { AsignacionResponsableService } from "./services/asignacion-responsable.
 import { StorageService } from "./services/storage.service";
 import { ReporteService } from "./services/reporte.service";
 import { ReporteIndividualService } from "./services/reporteIndividual.service";
+import { ReportePorEquipoService } from "./services/reportePorEquipo.service";
 
 //Rutas
 import { appRoutingProvider, routing } from "./app-routing.module";
@@ -29,6 +30,7 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
 import { ReporteComponent } from "./components/reporte/reporte.component";
 
 import { ReporteIndivdualComponent } from "./components/reporte-indivdual/reporte-indivdual.component";
+import { ReportePorEquipoComponent } from "./components/reportePorEquipo/reportePorEquipo.component";
 import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
@@ -41,7 +43,8 @@ import { ChartModule } from 'angular-highcharts';
     AsignacionGrupoComponent,
     AsignacionResponsableComponent,
     ReporteComponent,
-    ReporteIndivdualComponent
+    ReporteIndivdualComponent,
+    ReportePorEquipoComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ import { ChartModule } from 'angular-highcharts';
     AsignacionResponsableService,
     StorageService,
     ReporteService,
-    ReporteIndividualService
+    ReporteIndividualService,
+    ReportePorEquipoService
   ],
   bootstrap: [AppComponent]
 })
