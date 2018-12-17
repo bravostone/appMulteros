@@ -11,9 +11,9 @@
                     <label class="col-md-2 col-form-label" for="disabled-input">Año:</label>
                     <div class="col-md-3">
                         <select [(ngModel)]="anio" name="anio" class="custom-select">
-                                        <option value="0">--Seleccionar--</option>
-                                        <option [value]="usuario.codigo_usuario"
-                                        *ngFor="let usuario of usuarios">{{usuario.nombre}}
+                                <option value="0">--Seleccionar--</option>                                       
+                                        <option [value]="anio" 
+                                        *ngFor="let anio of ListaAnios">{{anio}}
                                         </option>
                                     </select>
                     </div>
@@ -21,18 +21,18 @@
                     <div class="col-md-3">
                         <select [(ngModel)]="mes" name="mes" class="custom-select">
                                         <option value="0">--Seleccionar--</option>
-                                        <option [value]="usuario.codigo_usuario"
-                                        *ngFor="let usuario of usuarios">{{usuario.nombre}}
+                                        <option [value]="mes.codigo"
+                                        *ngFor="let mes of ListaMeses">{{mes.nombre}}
                                         </option>
                                     </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-1 col-form-label">
-                        <button [routerLink]="['/menu']" routerLinkActive="active" class="btn btn-outline-danger">Retornar</button>
+                        <button [routerLink]="['/reporte-component']" routerLinkActive="active" class="btn btn-outline-danger">Retornar</button>
                     </div>
                     <div class="col-md-1 col-form-label">
-                        <button type="button" (click)="guardar(nuevoCodigo)" class="btn btn-outline-primary">Mostrar Reporte</button>
+                        <button type="button" (click)="getReporte(anio,mes)" class="btn btn-outline-primary">Mostrar Reporte</button>
                     </div>
                 </div>
             </form>

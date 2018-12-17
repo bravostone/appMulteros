@@ -13,6 +13,7 @@ import { UsuarioService } from "./services/shared/usuario.service";
 import { AsignacionResponsableService } from "./services/asignacion-responsable.service";
 import { StorageService } from "./services/storage.service";
 import { ReporteService } from "./services/reporte.service";
+import { SemanaService } from "./services/shared/semana.service";
 import { ReporteIndividualService } from "./services/reporteIndividual.service";
 import { ReportePorEquipoService } from "./services/reportePorEquipo.service";
 
@@ -63,8 +64,13 @@ import { ChartModule } from 'angular-highcharts';
     AsignacionResponsableService,
     StorageService,
     ReporteService,
+<<<<<<< HEAD
     ReporteIndividualService,
     ReportePorEquipoService
+=======
+    SemanaService,
+    ReporteIndividualService
+>>>>>>> be3d41162a0b6fa21abf3c282835cda1e0fedb5f
   ],
   bootstrap: [AppComponent]
 })
