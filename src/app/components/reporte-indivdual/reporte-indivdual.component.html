@@ -39,5 +39,11 @@
         </div>
     </div>
 </div>
-<!-- <button (click)="add()">Add Point!</button> -->
-<div [chart]="chart"></div>
+<div class="col-md-12">
+    <div *ngIf="ListaNombres.length === 0" class="alert alert-info" role="alert">
+        <strong>No se encuentra información.</strong>
+    </div>
+</div>
+<div class="col-md-12">
+    <div *ngIf="ListaNombres.length > 0" [chart]="chart"></div>
+</div>

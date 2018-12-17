@@ -16,7 +16,8 @@ export class ReporteIndivdualComponent implements OnInit {
   public ListaPuntos: number[] = [];
   public ListaNombres: string[] = [];
   listaDatos : ReporteIndividualResponse[];
-  messeleccionado : "0" ;  
+  mes :string = "0" ; 
+  anio :string= "0" ;   
   request : ReporteIndividualRequest;
   public ListaAnios: number[] = [2018,2019];
   public ListaMeses: ReporteIndividualSelect[] = [{codigo:1,nombre:"Enero"},
