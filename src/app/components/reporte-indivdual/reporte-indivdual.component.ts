@@ -3,6 +3,7 @@ import { ReporteIndividualRequest } from "../../interfaces/reporteIndividual.int
 import { ReporteIndividualResponse } from "../../interfaces/reporteIndividual.interface";
 import { ReporteIndividualSelect } from "../../interfaces/reporteIndividual.interface";
 import { ReporteIndividualService } from '../../services/reporteIndividual.service';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 import { Chart } from 'angular-highcharts';
 
@@ -33,7 +34,7 @@ export class ReporteIndivdualComponent implements OnInit {
     {codigo:11,nombre:"Noviembre"},
     {codigo:12,nombre:"Diciembre"}
   ];
-  constructor(private _reporte : ReporteIndividualService) { }
+  constructor(private _reporte : ReporteIndividualService,private loadingBar: LoadingBarService) { }
 
   ngOnInit() {
     //this.getDatos();
@@ -74,7 +75,12 @@ export class ReporteIndivdualComponent implements OnInit {
     //   });
     // }, 2000);    
   }
-
+  startLoading() {
+    this.loadingBar.start();
+  }
+  stopLoading() {
+    this.loadingBar.complete();
+  }
   getDatos(){
     // this.request = {
     //   YearActual: 2018, 
@@ -91,7 +97,7 @@ export class ReporteIndivdualComponent implements OnInit {
     );    
   }
   getReporte(anio:number,mes:number){
-    
+    this.startLoading();
     this.request = {
       YearActual: anio, 
       SemanaActual: 0,
@@ -135,7 +141,9 @@ export class ReporteIndivdualComponent implements OnInit {
           }
         ]
       });
-    }, 2000);    
+      this.stopLoading();
+    }, 2000);
+        
   }
   setArmarArrays(){
     console.log("pintar lista datos asignados");

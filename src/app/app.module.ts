@@ -5,6 +5,7 @@ import { HttpModule } from "@angular/http";
 import "rxjs/Rx";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
 import { NgDragDropModule } from "ng-drag-drop";
+import { LoadingBarModule } from '@ngx-loading-bar/core';
 
 //Servicios
 import { LoginService } from "./services/login.service";
@@ -54,7 +55,8 @@ import { ChartModule } from 'angular-highcharts';
     routing,
     AngularFontAwesomeModule,
     NgDragDropModule.forRoot(),
-    ChartModule
+    ChartModule,
+    LoadingBarModule.forRoot()
   ],
   providers: [
     TareoService,
