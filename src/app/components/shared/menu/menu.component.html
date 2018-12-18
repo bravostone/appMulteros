@@ -9,9 +9,9 @@
 
     <title>Icons Navigation</title>
 
-    <link rel="stylesheet" href="../../../../assets/demo.css">
-    <link rel="stylesheet" href="../../../../assets/navigation-icons.css">
-    <link rel="stylesheet" href="../../../../assets/slicknav/slicknav.min.css">
+    <!-- <link rel="stylesheet" href="../../../../assets/demo.css"> -->
+    <!-- <link rel="stylesheet" href="../../../../assets/navigation-icons.css"> -->
+    <!-- <link rel="stylesheet" href="../../../../assets/slicknav/slicknav.min.css"> -->
 </head>
 
 <body>
@@ -23,7 +23,8 @@
                     <a class="menu-magenta" [routerLink]="['/reporte-component']" routerLinkActive="active"><i class="fa fa-clock-o"></i><span>Asistencia</span></a>
                 </div>
             </div>
-            <div class="col-sm" *ngIf="user.Responsable==1">
+            <!-- <div class="col-sm" *ngIf="user.Responsable==1"> -->
+            <div class="col-sm">
                 <div class="menu-navigation-icons">
                     <a href="#" class="menu-blue" [routerLink]="['/registroTareo']"><i class="fa fa-pencil-square-o"></i><span>Registrar Entrada</span></a><br>
                 </div>
@@ -46,20 +47,8 @@
                     <a href="#" class="menu-red" [routerLink]="['/asignacionResponsable']"><i class="fa fa-user"></i><span>Responsable</span></a>
                 </div>
             </div>
-            <!-- <div class="col-sm">
-
-            </div> -->
         </div>
     </div>
-
-    <!-- <script src="assets/slicknav/jquery.slicknav.min.js"></script> -->
-
-    <script>
-        // $(function() {
-        //     $('.menu-navigation-icons').slicknav();
-        // });
-    </script>
-
 </body>
 
 </html>
