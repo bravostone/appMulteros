@@ -50,16 +50,36 @@
                 <tbody>
                     <tr *ngFor="let item of listaTareos">
                         <td class="row-name">{{item.NombreCompleto}}</td>
-                        <td ng-class="{'red': (item.Lunes == 'Multa'), 'yellow': (item.Lunes == 'Comodin'), 'wheat': (item.Lunes == 'Permiso')}">{{item.Lunes}}</td>
-                        <td>{{item.Martes}}</td>
+                        <td [ngClass]="{
+                            'red':item.Lunes === 'Multa',
+                            'yellow':item.Lunes === 'Comodin',
+                            'green':item.Lunes === 'Puntual',
+                            'wheat':item.Lunes === 'Permiso'
+                          }">{{item.Lunes}}</td>
+                        <td [ngClass]="{
+                            'red':item.Martes === 'Multa',
+                            'yellow':item.Martes === 'Comodin',
+                            'green':item.Martes === 'Puntual',
+                            'wheat':item.Martes === 'Permiso'
+                          }">{{item.Martes}}</td>
                         <td [ngClass]="{
                             'red':item.Miercoles === 'Multa',
                             'yellow':item.Miercoles === 'Comodin',
                             'green':item.Miercoles === 'Puntual',
                             'wheat':item.Miercoles === 'Permiso'
                           }">{{item.Miercoles}}</td>
-                        <td>{{item.Jueves}}</td>
-                        <td>{{item.Viernes}}</td>
+                        <td [ngClass]="{
+                            'red':item.Jueves === 'Multa',
+                            'yellow':item.Jueves === 'Comodin',
+                            'green':item.Jueves === 'Puntual',
+                            'wheat':item.Jueves === 'Permiso'
+                          }">{{item.Jueves}}</td>
+                        <td [ngClass]="{
+                            'red':item.Viernes === 'Multa',
+                            'yellow':item.Viernes === 'Comodin',
+                            'green':item.Viernes === 'Puntual',
+                            'wheat':item.Viernes === 'Permiso'
+                          }">{{item.Viernes}}</td>
                     </tr>
                     <tr *ngIf="listaTareos === undefined || listaTareos.length === 0">
                         <td colspan=6 class="alert alert-info">No se encuentra información</td>
