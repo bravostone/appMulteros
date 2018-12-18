@@ -10,7 +10,7 @@
                     <label class="col-md-1 col-form-label" for="disabled-input">Año:</label>
                     <div class="col-md-3">
                         <select [(ngModel)]="anio" name="anio" class="custom-select">
-                                        <option value="0" [selected]>--Seleccionar--</option>                                       
+                                        <option value="0">--Seleccionar--</option>                                       
                                                 <option [value]="anio" 
                                                 *ngFor="let anio of listaAnios">{{anio}}
                                                 </option>
@@ -19,7 +19,7 @@
                     <label class="col-md-1 col-form-label" for="disabled-input">Semana:</label>
                     <div class="col-md-3">
                         <select [(ngModel)]="semana" name="mes" class="custom-select">
-                                        <option value="0" [selected]>--Seleccionar--</option>
+                                        <option value="0">--Seleccionar--</option>
                                         <option [value]="semana.semana"
                                         *ngFor="let semana of listaSemana">{{semana.semana}} ({{semana.fecha_inicio}} - {{semana.fecha_fin}})
                                         </option>
@@ -29,18 +29,14 @@
                         <button type="button" (click)="getDatos(anio,semana)" class="btn btn-outline-primary">Mostrar Reporte</button>
                     </div>
                 </div>
-                <!-- <div class="row">
-                    
-                </div> -->
             </form>
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-lg-12">
         <div class="card-body">
-            <table class="table table-bordered table-striped table-sm">
+            <table class="table table-bordered table-striped table-sm" *ngIf="listaTareos != undefined">
                 <thead>
                     <tr>
                         <th class="row-name">Nombre</th>
@@ -52,7 +48,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of listaTareos; let i = index">
+                    <tr *ngFor="let item of listaTareos">
                         <td class="row-name">{{item.NombreCompleto}}</td>
                         <td ng-class="{'red': (item.Lunes == 'Multa'), 'yellow': (item.Lunes == 'Comodin'), 'wheat': (item.Lunes == 'Permiso')}">{{item.Lunes}}</td>
                         <td>{{item.Martes}}</td>
@@ -64,6 +60,9 @@
                           }">{{item.Miercoles}}</td>
                         <td>{{item.Jueves}}</td>
                         <td>{{item.Viernes}}</td>
+                    </tr>
+                    <tr *ngIf="listaTareos === undefined || listaTareos.length === 0">
+                        <td colspan=6 class="alert alert-info">No se encuentra información</td>
                     </tr>
                 </tbody>
             </table>
@@ -80,6 +79,5 @@
                 </ul>
             </nav> -->
         </div>
-        <!-- </div> -->
     </div>
 </div>

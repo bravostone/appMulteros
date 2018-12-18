@@ -11,18 +11,17 @@ import { Semana } from "../../interfaces/shared/semana.interface";
   styleUrls: ['./reporte.component.css']
 })
 export class ReporteComponent implements OnInit {
-  listaTareos: ReporteResponse;
+  listaTareos: ReporteResponse[];
   request: ReporteRequest;
-  listaSemana: Semana;
+  listaSemana: Semana[];
   listaAnios: number[] = [2018,2019];
-  anio: number;
-  semana: number;
+  anio: number = 0;
+  semana: number = 0;
   constructor(private _reporte : ReporteService, private _semana : SemanaService) { }
 
   ngOnInit() {
-    debugger;
-    this.getDatos();
     this.getSemana();
+    this.getDatos();
   }
 
   getDatos(){
