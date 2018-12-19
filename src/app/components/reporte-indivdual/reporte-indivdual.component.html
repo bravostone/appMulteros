@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<br/>
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
@@ -6,9 +7,8 @@
         </div>
         <div class="card-body">
             <form #forma="ngForm">
-
                 <div class="row">
-                    <label class="col-md-2 col-form-label" for="disabled-input">Año:</label>
+                    <label class="col-md-1 col-form-label" for="disabled-input">Año:</label>
                     <div class="col-md-3">
                         <select [(ngModel)]="anio" name="anio" class="custom-select">
                                 <option value="0">--Seleccionar--</option>                                       
@@ -17,7 +17,7 @@
                                         </option>
                                     </select>
                     </div>
-                    <label class="col-md-2 col-form-label" for="disabled-input">Mes:</label>
+                    <label class="col-md-1 col-form-label" for="disabled-input">Mes:</label>
                     <div class="col-md-3">
                         <select [(ngModel)]="mes" name="mes" class="custom-select">
                                         <option value="0">--Seleccionar--</option>
@@ -26,12 +26,10 @@
                                         </option>
                                     </select>
                     </div>
-                </div>
-                <div class="row">
-                    <!-- <div class="col-md-1 col-form-label">
-                        <button type="button" [routerLink]="['/reporte-individual']" class="btn btn-outline-danger">Ir Reporte Grupo</button>
-                    </div> -->
-                    <div class="col-md-1 col-form-label">
+                    <div class="col-md-2 col-form-label">
+
+                    </div>
+                    <div class="col-md-1">
                         <button type="button" (click)="getReporte(anio,mes)" class="btn btn-outline-primary">Mostrar Reporte</button>
                     </div>
                 </div>
@@ -39,6 +37,7 @@
         </div>
     </div>
 </div>
+<br>
 <div class="col-md-12">
     <div *ngIf="ListaNombres.length === 0" class="alert alert-info" role="alert">
         <strong>No se encuentra información.</strong>

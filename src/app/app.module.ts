@@ -6,6 +6,7 @@ import "rxjs/Rx";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
 import { NgDragDropModule } from "ng-drag-drop";
 import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { ChartModule } from 'angular-highcharts';
 
 //Servicios
 import { LoginService } from "./services/login.service";
@@ -30,10 +31,9 @@ import { MenuComponent } from "./components/shared/menu/menu.component";
 import { AsignacionGrupoComponent } from "./components/asignacionGrupo/asignacionGrupo.componente";
 import { AsignacionResponsableComponent } from "./components/asignacionResponsable/asignacionResponsable.component";
 import { ReporteComponent } from "./components/reporte/reporte.component";
-
 import { ReporteIndivdualComponent } from "./components/reporte-indivdual/reporte-indivdual.component";
 import { ReportePorEquipoComponent } from "./components/reportePorEquipo/reportePorEquipo.component";
-import { ChartModule } from 'angular-highcharts';
+import { GeneralComponent } from './components/shared/general/general.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import { ChartModule } from 'angular-highcharts';
     AsignacionResponsableComponent,
     ReporteComponent,
     ReporteIndivdualComponent,
-    ReportePorEquipoComponent
+    ReportePorEquipoComponent,
+    GeneralComponent
   ],
   imports: [
     BrowserModule,
