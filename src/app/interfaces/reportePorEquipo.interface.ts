@@ -7,3 +7,9 @@ export interface reporteXEquipoContenido {
   Puntos: number;
   NombreEquipo: string;
 }
+
+export interface ContenidoChart {
+  name: string;
+  data: number;
+ 
+}

@@ -2,7 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import {
   reporteXEquipoContenido,
-  reporteXEquipoFiltro
+  reporteXEquipoFiltro,
+  ContenidoChart
 } from "../../interfaces/reportePorEquipo.interface";
 import { ReporteIndividualSelect } from "../../interfaces/reporteIndividual.interface";
 import { ReportePorEquipoService } from "../../services/reportePorEquipo.service";
@@ -14,11 +15,11 @@ import { Chart } from "angular-highcharts";
   templateUrl: "./reportePorEquipo.component.html"
 })
 export class ReportePorEquipoComponent implements OnInit {
-  resultado: reporteXEquipoContenido[];
+  public resultado: reporteXEquipoContenido[] = [];
   chart = null;
   filtros: reporteXEquipoFiltro = {
-    YearActual: (new Date().getFullYear()),
-    MesActual: (new Date().getMonth() + 1)
+    YearActual: new Date().getFullYear(),
+    MesActual: new Date().getMonth() + 1
   };
 
   public ListaPuntos: number[] = [];
@@ -39,12 +40,29 @@ export class ReportePorEquipoComponent implements OnInit {
     { codigo: 12, nombre: "Diciembre" }
   ];
   public ListaNombreMes: string[] = [];
+  public ListaArray: any[][] = [][0];
+
+  public Arraycin = [
+    {
+      name: "Equipo A",
+      data: [0, 1, 1, 1, 1]
+    },
+    {
+      name: "Equipo B",
+      data: [0, 1, 1, 2, 1]
+    },
+    {
+      name: "Equipo C",
+      data: [0, 0, 1, 3, 1]
+    }
+  ];
 
   constructor(private _reportePorEquipoService: ReportePorEquipoService) {}
 
   ngOnInit() {
     this.obtenerInfo();
-this.obtenerMeses();
+    this.obtenerMeses();
+    //this.ConvertirArray();
     this.chart = new Chart({
       chart: {
         type: "column"
@@ -53,11 +71,11 @@ this.obtenerMeses();
         text: "DashBoard de Puntaje por Equipos"
       },
       subtitle: {
-        text: "Periodo Diciembre 2018"
+        text: "Periodo Diciembre " + this.filtros.YearActual
       },
       xAxis: {
-          categories: this.ListaNombreMes,
-          crosshair: true
+        categories: this.ListaNombreMes,
+        crosshair: true
       },
       yAxis: {
         min: 0,
@@ -65,62 +83,83 @@ this.obtenerMeses();
           text: "Puntaje Acumulado"
         }
       },
-    //   tooltip: {
-    //     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-    //     pointFormat:
-    //       '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-    //       '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-    //     footerFormat: "</table>",
-    //     shared: true,
-    //     useHTML: true
-    //   },
+      //   tooltip: {
+      //     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      //     pointFormat:
+      //       '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+      //       '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+      //     footerFormat: "</table>",
+      //     shared: true,
+      //     useHTML: true
+      //   },
       plotOptions: {
         column: {
           pointPadding: 0.2,
           borderWidth: 0
         }
       },
-      series: [
-        // {
-        //   name: 'holi',
-        //   data: [ 2, 4, 1]
-        // }
-            {
-            name: 'Equipo A',
-            data: [1,3,4,5,3,6,6,6]
-
-        }, {
-            name: 'Equipo B',
-            data: [2]
-
-        }, {
-            name: 'Equipo C',
-            data: [1]
-
-        }
-      ]
+      series: this.Arraycin
+      // series: [
+      //   // {
+      //   //   name: 'holi',
+      //   //   data: [ 2, 4, 1]
+      //   // }
+      //   {
+      //     name: "Equipo A",
+      //     data: [1, 3, 4, 5, 3, 6, 6, 6]
+      //   },
+      //   {
+      //     name: "Equipo B",
+      //     data: [2]
+      //   },
+      //   {
+      //     name: "Equipo C",
+      //     data: [1]
+      //   }
+      // ]
     });
   }
 
   obtenerInfo() {
+    //debugger;
+    console.log(this.resultado);
     this._reportePorEquipoService
       .ObtenerListaPuntajeXEquipos(this.filtros)
       .subscribe(data => {
         this.resultado = data;
         console.log(this.resultado);
+        console.log(data.length);
+
+        // for (let index = 0; index < data.length; index++) {
+        //   this.ListaArray.push(data[index].NombreEquipo,data[index].Puntos);
+        //   //this.ListaArray.push(data[index].Puntos);
+        // }
+        // console.log(this.ListaArray);
       });
+
+    // for (let index = 0; index < this.resultado.length; index++) {
+    //   this.ListaArray.push(this.resultado[index].NombreEquipo);
+    //   this.ListaArray.push(this.resultado[index].Puntos);
+
+    // }
   }
 
+  // ConvertirArray(){
+  //   console.log(this.resultado);
+  //   for (let index = 0; index < this.resultado.length; index++) {
+  //     this.ListaArray.push(this.resultado[index].NombreEquipo);
+  //     this.ListaArray.push(this.resultado[index].Puntos);
+
+  //   }
+  // }
+
   obtenerMeses() {
-      for (let index = 0; index < this.ListaMeses.length; index++) {
-          if (this.filtros.MesActual > 0) {
-            this.ListaNombreMes.push(this.ListaMeses[index].nombre);
-          }
-          else 
-          {
-            this.ListaNombreMes.push(this.ListaMeses[index].nombre);
-          }
-                   
+    for (let index = 0; index < this.ListaMeses.length; index++) {
+      if (this.filtros.MesActual > 0) {
+        this.ListaNombreMes.push(this.ListaMeses[index].nombre);
+      } else {
+        this.ListaNombreMes.push(this.ListaMeses[index].nombre);
       }
+    }
   }
 }
