@@ -10,6 +10,5 @@ export interface reporteXEquipoContenido {
 
 export interface ContenidoChart {
   name: string;
-  data: number;
- 
+  data: number; 
 }
