@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from "../../services/storage.service";
+import { Router, ActivatedRoute } from "@angular/router";
+import { ComodinService } from "../../services/comodin.service";
+import { Usuario } from "../../interfaces/usuario.interface";
 
 @Component({
   selector: 'app-reloj',
@@ -10,10 +14,13 @@ export class RelojComponent implements OnInit {
   minutos: number;
   segundos: number;
   pSaludo: string;
+  user: Usuario;
 
-  constructor() { }
+  constructor(private _comodinService: ComodinService, private _router: Router, private storageService: StorageService) { }
 
   ngOnInit() {
+    this.user = this.storageService.getCurrentUser();
+
     this.ActualizarHora();
     setInterval(() => {
       this.ActualizarHora(); 
@@ -35,6 +42,21 @@ export class RelojComponent implements OnInit {
     if (this.horas >= 19 && this.minutos >= 1) {
         this.pSaludo = "Buenas noches";
     }
+  }
+
+  guardar() {
+      this._comodinService
+        .InsertComodin(this.user)
+        .subscribe(
+          data => {
+            console.log(data);
+            debugger;
+            alert(data.Mensaje);
+            this._router.navigate(["/menu"]);
+          },
+          error => console.error(error)
+        );
+    
   }
   
 }
