@@ -7,11 +7,45 @@
         <div class="card-body">
             <form #forma="ngForm">
                 <div class="row">
-                    <label class="col-md-2 col-form-label" for="disabled-input">Año: 2018</label>
-                    <label class="col-md-2 col-form-label" for="disabled-input">Mes: 10</label>
+                    <label class="col-md-2 col-form-label" for="disabled-input">Año:</label>
+                    <div class="col-md-3">
+                        <select [(ngModel)]="filtros.YearActual" name="YearActual" class="custom-select">
+                                <option value="0">--Seleccionar--</option>                                       
+                                        <option [value]="anio" 
+                                        *ngFor="let anio of ListaAnios">{{anio}}
+                                        </option>
+                                    </select>
+                    </div>
+                    <label class="col-md-2 col-form-label" for="disabled-input">Mes:</label>
+                    <div class="col-md-3">
+                        <select [(ngModel)]="filtros.MesActual" name="MesActual" class="custom-select">
+                                        <option value="0">--Seleccionar--</option>
+                                        <option [value]="mes.codigo"
+                                        *ngFor="let mes of ListaMeses">{{mes.nombre}}
+                                        </option>
+                                    </select>
+                    </div>
+                    <pre>
+                        {{filtros.YearActual | json}}
+                        {{filtros.MesActual | json}}
+                    </pre>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 col-form-label">
+                        <button [routerLink]="['/reporte-component']" routerLinkActive="active" class="btn btn-outline-danger">Retornar</button>
+                    </div>
+                    <div class="col-md-1 col-form-label">
+                        <button type="button" (click)="obtenerInfo()" class="btn btn-outline-primary">Cargar Reporte</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<div [chart]="chart"></div>
+<div *ngIf="resultado.length === 0">
+    <strong>No hay información que mostrar.</strong>
+</div>
+<div *ngIf="resultado.length > 0">
+    <div [chart]="chart">
+    </div>
+</div>

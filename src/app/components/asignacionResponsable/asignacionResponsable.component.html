@@ -39,7 +39,7 @@
                         <button [routerLink]="['/menu']" routerLinkActive="active" class="btn btn-outline-danger">Retornar</button>
                     </div>
                     <div class="col-md-1 col-form-label">
-                        <button type="button" (click)="guardar(nuevoCodigo)" class="btn btn-outline-primary">Grabar</button>
+                        <button [disabled]="!asignacion.HabilitadoBoton" type="button" (click)="guardar(nuevoCodigo)" class="btn btn-outline-primary">Grabar</button>
                     </div>
                 </div>
             </form>
