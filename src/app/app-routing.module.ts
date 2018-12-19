@@ -10,6 +10,7 @@ import {LoginComponent} from './components/login/login.component'
 import {ReporteComponent} from './components/reporte/reporte.component'
 import { ReporteIndivdualComponent } from './components/reporte-indivdual/reporte-indivdual.component'
 import { ReportePorEquipoComponent } from './components/reportePorEquipo/reportePorEquipo.component'
+import { RelojComponent } from './components/reloj/reloj.component'
 
 const appRoutes:Routes=[
   { path: 'menu', component: MenuComponent},
@@ -20,7 +21,8 @@ const appRoutes:Routes=[
   { path: 'reporte-component' , component: ReporteComponent},
   { path: '' , pathMatch: 'full' ,redirectTo: 'login-component'},
   { path: 'reporte-individual' , component: ReporteIndivdualComponent},
-  { path: 'reporte-por-equipo' , component: ReportePorEquipoComponent}
+  { path: 'reporte-por-equipo' , component: ReportePorEquipoComponent},
+  { path: 'comodin' , component: RelojComponent}
 ];
 
 export const appRoutingProvider:any[]=[];

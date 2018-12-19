@@ -34,6 +34,7 @@ import { ReporteComponent } from "./components/reporte/reporte.component";
 import { ReporteIndivdualComponent } from "./components/reporte-indivdual/reporte-indivdual.component";
 import { ReportePorEquipoComponent } from "./components/reportePorEquipo/reportePorEquipo.component";
 import { ChartModule } from 'angular-highcharts';
+import { RelojComponent } from './components/reloj/reloj.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ChartModule } from 'angular-highcharts';
     AsignacionResponsableComponent,
     ReporteComponent,
     ReporteIndivdualComponent,
-    ReportePorEquipoComponent
+    ReportePorEquipoComponent,
+    RelojComponent
   ],
   imports: [
     BrowserModule,
