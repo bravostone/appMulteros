@@ -62,7 +62,10 @@ export class ReportePorEquipoComponent implements OnInit {
     }
   ];
 
-  constructor(private _reportePorEquipoService: ReportePorEquipoService,private loadingBar: LoadingBarService) {}
+  constructor(
+    private _reportePorEquipoService: ReportePorEquipoService,
+    private loadingBar: LoadingBarService
+  ) {}
 
   ngOnInit() {
     this.obtenerInfo();
@@ -87,62 +90,66 @@ export class ReportePorEquipoComponent implements OnInit {
     this.Pruebita();
     if (this.resultado.length > 0) {
       this.generarChart();
-    }    
+    }
   }
 
   generarChart() {
     setTimeout(() => {
       this.chart = new Chart({
-      chart: {
-        type: "column"
-      },
-      title: {
-        text: "DashBoard de Puntaje por Equipos"
-      },
-      subtitle: {
-        text: "Periodo Diciembre " + this.filtros.YearActual
-      },
-      xAxis: {
-        categories: this.ListaNombreMes,
-        crosshair: true
-      },
-      yAxis: {
-        min: 0,
+        chart: {
+          type: "column"
+        },
         title: {
-          text: "Puntaje Acumulado"
-        }
-      },
-      //   tooltip: {
-      //     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-      //     pointFormat:
-      //       '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-      //       '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-      //     footerFormat: "</table>",
-      //     shared: true,
-      //     useHTML: true
-      //   },
-      plotOptions: {
-        column: {
-          pointPadding: 0.2,
-          borderWidth: 0
-        }
-      },
-      series: [
-        {
-          name: "Equipo A",
-          data: this.PuntajeA
+          text: "DashBoard de Puntaje por Equipos"
         },
-        {
-          name: "Equipo B",
-          data: this.PuntajeB
+        subtitle: {
+          text: "Periodo Diciembre " + this.filtros.YearActual
         },
-        {
-          name: "Equipo C",
-          data: this.PuntajeC
-        }
-      ]
-    });this.stopLoading();
-  }, 2000);
+        xAxis: {
+          categories: this.ListaNombreMes,
+          crosshair: true
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: "Puntaje Acumulado"
+          }
+        },
+        //   tooltip: {
+        //     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        //     pointFormat:
+        //       '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+        //       '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        //     footerFormat: "</table>",
+        //     shared: true,
+        //     useHTML: true
+        //   },
+        plotOptions: {
+          column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+          }
+        },
+        exporting: {
+          enabled: true
+        },
+        series: [
+          {
+            name: "Equipo A",
+            data: this.PuntajeA
+          },
+          {
+            name: "Equipo B",
+            data: this.PuntajeB
+          },
+          {
+            name: "Equipo C",
+            data: this.PuntajeC
+          }
+        ]
+      });
+      this.stopLoading();
+    }, 2000);
   }
 
   obtenerMeses() {
@@ -161,17 +168,17 @@ export class ReportePorEquipoComponent implements OnInit {
     this.PuntajeA = [];
     this.PuntajeB = [];
     this.PuntajeC = [];
-    
+
     for (let index = 0; index < this.resultado.length; index++) {
       switch (this.resultado[index].NombreEquipo) {
         case "Equipo A":
           this.PuntajeA.push(this.resultado[index].Puntos);
           break;
         case "Equipo B":
-        this.PuntajeB.push(this.resultado[index].Puntos);
+          this.PuntajeB.push(this.resultado[index].Puntos);
           break;
         case "Equipo C":
-        this.PuntajeC.push(this.resultado[index].Puntos);
+          this.PuntajeC.push(this.resultado[index].Puntos);
           break;
       }
     }
