@@ -24,12 +24,25 @@ export class RegistroTareoComponent implements OnInit {
    ]
   };
 
+  fecha: any = {
+    mesNombre: ""
+  }
+
   constructor(private _tareo : TareoService,
               private router : Router) {
    }
 
   ngOnInit() {
+    this.getFecha();
     this.getDatos();
+    //this.fecha.mes;
+  }
+
+  getFecha(){
+    var objDate = new Date(),
+    locale = "es-PE",
+    month = objDate.toLocaleString(locale, { month: "long" });
+    this.fecha.mesNombre = month;
   }
 
   getDatos(){

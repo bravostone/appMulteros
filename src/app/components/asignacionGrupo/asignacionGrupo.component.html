@@ -18,35 +18,32 @@
                     </div>
                     
                     <div class="col-sm-3" droppable >
-                            <ul class="list-group">
+                            <ul class="list-group" droppable (onDrop)="onItemDropGrupoA($event)">
                                 <li class="list-group-item" style="background-color: blue;">Grupo A</li>
-                                <!-- <li draggable *ngFor="let item of items" [dragData]="item" class="list-group-item">{{item.name}}</li> -->
+                                <div class="panel-body">
+                                    <li *ngFor="let item of dropGrupoA" class="list-group-item">{{item.nombre}}</li>
+                                </div>
                             </ul>
                         </div>
                         
                     <div class="col-sm-3" droppable >
-                                <ul class="list-group">
+                                <ul class="list-group" droppable (onDrop)="onItemDropGrupoB($event)">
                                     <li class="list-group-item" style="background-color: blue;">Grupo B</li>
-                                    <!-- <li draggable *ngFor="let item of items" [dragData]="item" class="list-group-item">{{item.name}}</li> -->
+                                    <div class="panel-body">
+                                        <li *ngFor="let item of dropGrupoB" class="list-group-item">{{item.nombre}}</li>
+                                    </div>
                                 </ul>
                         </div>
 
                   <div class="col-sm-3" droppable >
-                        <div class="list-group" droppable (onDrop)="onItemDrop($event)">
+                        <div class="list-group" droppable (onDrop)="onItemDropGrupoC($event)">
                             <div class="list-group-item" style="background-color: blue;">Grupo C</div>
                                 <div class="panel-body">
-                                    <li *ngFor="let item of droppedItems" class="list-group-item">{{item.nombre}}</li>
+                                    <li *ngFor="let item of dropGrupoC" class="list-group-item">{{item.nombre}}</li>
                                 </div>
                             </div>
 
                         </div>
-
-                            <!-- <div class="col-sm-3" droppable >
-                                    <ul class="list-group">
-                                        <li class="list-group-item" style="background-color: blue;">Grupo C</li>
-                                    </ul>
-                                </div> -->
-                                
                 </div>
             </form>
         </div>
