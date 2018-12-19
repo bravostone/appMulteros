@@ -5,14 +5,16 @@ import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-asignacionGrupo',
-    templateUrl: './asignacionGrupo.component.html'//,
-    // styleUrls: ['./asignacionGrupo.component.css']
+    templateUrl: './asignacionGrupo.component.html'
 })
 
 export class AsignacionGrupoComponent implements OnInit {
 
     usuarios: usuarioInterface[] = [];
-    droppedItems: usuarioInterface[] = [];
+
+    dropGrupoA: usuarioInterface[] = [];
+    dropGrupoB: usuarioInterface[] = [];
+    dropGrupoC: usuarioInterface[] = [];
        
     constructor(private _usuarioService: UsuarioService,
             private router : Router) {}
@@ -24,11 +26,22 @@ export class AsignacionGrupoComponent implements OnInit {
         list.splice(index, 1);
         }
               
-    onItemDrop(e: any) {
+    onItemDropGrupoA(e: any) {
         debugger;
-                // Get the dropped data here
-                this.droppedItems.push(e.dragData);
-                this.removeItem(e.dragData, this.usuarios);
+        this.dropGrupoA.push(e.dragData);
+        this.removeItem(e.dragData, this.usuarios);
+    }
+
+    onItemDropGrupoB(e: any) {
+        debugger;
+        this.dropGrupoB.push(e.dragData);
+        this.removeItem(e.dragData, this.usuarios);
+    }
+
+    onItemDropGrupoC(e: any) {
+        debugger;
+        this.dropGrupoC.push(e.dragData);
+        this.removeItem(e.dragData, this.usuarios);
     }
 
     ngOnInit() {
@@ -36,10 +49,8 @@ export class AsignacionGrupoComponent implements OnInit {
     }
 
     getDatos(){
-        debugger;
         this._usuarioService.obtenerUsuario().subscribe(dataUser => {
             this.usuarios = dataUser;
-            console.log(dataUser);
             });
     }
 
