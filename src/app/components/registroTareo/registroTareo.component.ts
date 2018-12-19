@@ -7,11 +7,12 @@ import * as $ from 'jquery';
 
 @Component({
   selector: 'app-registroTareo',
-  templateUrl: './registroTareo.component.html'
+  templateUrl: './registroTareo.component.html',
+  styleUrls: ['./registroTareo.component.css']
 })
 
 export class RegistroTareoComponent implements OnInit {
- 
+
   bandeja:Tareo = {
     dia: "",
     responsable: "",
@@ -65,7 +66,7 @@ export class RegistroTareoComponent implements OnInit {
   }
 
   insertDatos(){
-
+    debugger;
     let lineItems: any = [];
     let myTable = document.getElementById("tblValues");
     lineItems.length = 0;
@@ -75,17 +76,20 @@ export class RegistroTareoComponent implements OnInit {
     for(var i = 0; i < table.childNodes.length - 1 ; i++ )
     {
       var rowItem = table.childNodes[i + 1];
-      lineItems.push({
-        'CodigoUsuario': $(rowItem).find('td:gt(0)').first().text(),
-        'CodigoAsistencia'  : $(rowItem).find('td:gt(2)').find("select").val()
-      });
+      if($(rowItem).find('td:gt(2)').find("select").val() != "0"){
+        lineItems.push({
+          'CodigoUsuario': $(rowItem).find('td:gt(0)').first().text(),
+          'CodigoAsistencia'  : $(rowItem).find('td:gt(2)').find("select").val()
+        });
+      }
     }
  
     this.datos.Lista = lineItems;
 
-     this._tareo.insertTareo(this.datos).subscribe(
+    this._tareo.insertTareo(this.datos).subscribe(
        (data: any) =>{
          if(data.Exito == true){
+             this.getDatos();
              alert(data.Mensaje);
          }
          else{
