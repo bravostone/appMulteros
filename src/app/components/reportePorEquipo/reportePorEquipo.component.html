@@ -25,14 +25,10 @@
                                         </option>
                                     </select>
                     </div>
-                    <pre>
-                        {{filtros.YearActual | json}}
-                        {{filtros.MesActual | json}}
-                    </pre>
                 </div>
                 <div class="row">
                     <div class="col-md-1 col-form-label">
-                        <button [routerLink]="['/reporte-indivdual']" routerLinkActive="active" class="btn btn-outline-danger">Retornar</button>
+                        <button [routerLink]="['/menu']" routerLinkActive="active" class="btn btn-outline-danger">Retornar</button>
                     </div>
                     <div class="col-md-1 col-form-label">
                         <button type="button" (click)="obtenerInfo()" class="btn btn-outline-primary">Cargar Reporte</button>
@@ -41,11 +37,12 @@
             </form>
         </div>
     </div>
-</div>
-<div *ngIf="resultado.length === 0">
-    <strong>No hay información que mostrar.</strong>
-</div>
-<div *ngIf="resultado.length > 0">
-    <div [chart]="chart">
+    <div *ngIf="resultado.length === 0" class="alert alert-info" role="alert">
+        <strong>No hay información que mostrar.</strong>
+    </div>
+    <div *ngIf="resultado.length > 0">
+        <div [chart]="chart">
+        </div>
     </div>
 </div>
+<ngx-loading-bar></ngx-loading-bar>

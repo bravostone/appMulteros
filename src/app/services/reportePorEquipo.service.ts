@@ -23,5 +23,4 @@ export class ReportePorEquipoService {
       return res.json();
     });
   }
-
 }

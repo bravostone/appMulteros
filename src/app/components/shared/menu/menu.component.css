@@ -78,6 +78,14 @@
     color: #d34646;
 }
 
+.menu-navigation-icons a.menu-pink {
+    background-color: purple;
+}
+
+.menu-navigation-icons a.menu-pink i {
+    color: white;
+}
+
 
 /* Make this page responsive */
 
