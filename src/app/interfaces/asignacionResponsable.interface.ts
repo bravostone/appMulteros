@@ -4,4 +4,5 @@ export interface asignacionResponsable {
     CodigoUsuarioAntiguo?:number;
     FechaInicioTareo:Date;
     FechaFinTareo:Date;
+    HabilitadoBoton?:boolean;
 }
