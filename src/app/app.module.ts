@@ -33,12 +33,8 @@ import { AsignacionResponsableComponent } from "./components/asignacionResponsab
 import { ReporteComponent } from "./components/reporte/reporte.component";
 import { ReporteIndivdualComponent } from "./components/reporte-indivdual/reporte-indivdual.component";
 import { ReportePorEquipoComponent } from "./components/reportePorEquipo/reportePorEquipo.component";
-<<<<<<< HEAD
 import { GeneralComponent } from './components/shared/general/general.component';
-=======
-import { ChartModule } from 'angular-highcharts';
 import { RelojComponent } from './components/reloj/reloj.component';
->>>>>>> edb85bd1f2b0c1b6d0a06fa4d2d01f8c6d452ed7
 
 @NgModule({
   declarations: [
@@ -52,11 +48,8 @@ import { RelojComponent } from './components/reloj/reloj.component';
     ReporteComponent,
     ReporteIndivdualComponent,
     ReportePorEquipoComponent,
-<<<<<<< HEAD
-    GeneralComponent
-=======
+    GeneralComponent,
     RelojComponent
->>>>>>> edb85bd1f2b0c1b6d0a06fa4d2d01f8c6d452ed7
   ],
   imports: [
     BrowserModule,
