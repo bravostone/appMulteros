@@ -28,10 +28,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-1 col-form-label">
-                        <button [routerLink]="['/menu']" routerLinkActive="active" class="btn btn-outline-danger">Retornar</button>
+                        <button [routerLink]="['/reporte-individual']" routerLinkActive="active" class="btn btn-outline-danger">Retornar</button>
                     </div>
                     <div class="col-md-1 col-form-label">
-                        <button type="button" (click)="obtenerInfo()" class="btn btn-outline-primary">Cargar Reporte</button>
+                        <button type="button" (click)="obtenerInfo()" class="btn btn-outline-primary">Mostrar Reporte</button>
                     </div>
                 </div>
             </form>
@@ -44,5 +44,8 @@
         <div [chart]="chart">
         </div>
     </div>
+    <pre>
+        {{resultado.length|json}}
+    </pre>
 </div>
 <ngx-loading-bar></ngx-loading-bar>

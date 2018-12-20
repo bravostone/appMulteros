@@ -84,8 +84,7 @@ export class ReportePorEquipoComponent implements OnInit {
       .subscribe(data => {
         this.resultado = data;
       });
-    console.log(this.resultado);
-    this.startLoading();
+    //console.log(this.resultado);
     this.obtenerMeses();
     this.Pruebita();
     if (this.resultado.length > 0) {
@@ -94,6 +93,7 @@ export class ReportePorEquipoComponent implements OnInit {
   }
 
   generarChart() {
+    this.startLoading();
     setTimeout(() => {
       this.chart = new Chart({
         chart: {
@@ -111,6 +111,7 @@ export class ReportePorEquipoComponent implements OnInit {
         },
         yAxis: {
           min: 0,
+          allowDecimals: false,
           title: {
             text: "Puntaje Acumulado"
           }
