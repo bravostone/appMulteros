@@ -18,7 +18,7 @@ body {
 #contReloj {
     background: rgba(0, 0, 0, .7);
     display: block;
-    margin: 0 0 40px 40px;
+    margin: 40px 0 10px 40px;
     text-align: center;
     /* width: 500px; */
 }
@@ -27,7 +27,7 @@ body {
     color: #fff;
     display: inline-block;
     font-family: 'code_boldregular';
-    font-size: 6em;
+    font-size: 5em;
 }
 
 #btn {
