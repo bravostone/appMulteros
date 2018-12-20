@@ -3,6 +3,7 @@ import { StorageService } from "../../services/storage.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ComodinService } from "../../services/comodin.service";
 import { Usuario } from "../../interfaces/usuario.interface";
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app-reloj',
@@ -16,7 +17,7 @@ export class RelojComponent implements OnInit {
   pSaludo: string;
   user: Usuario;
 
-  constructor(private _comodinService: ComodinService, private _router: Router, private storageService: StorageService) { }
+  constructor(private _comodinService: ComodinService, private _router: Router, private storageService: StorageService, private loadingBar: LoadingBarService) { }
 
   ngOnInit() {
     this.user = this.storageService.getCurrentUser();
@@ -25,6 +26,13 @@ export class RelojComponent implements OnInit {
     setInterval(() => {
       this.ActualizarHora(); 
     }, 1000);
+  }
+
+  startLoading() {
+    this.loadingBar.start();
+  }
+  stopLoading() {
+    this.loadingBar.complete();
   }
 
   ActualizarHora(){
@@ -45,6 +53,7 @@ export class RelojComponent implements OnInit {
   }
 
   guardar() {
+    this.startLoading();
       this._comodinService
         .InsertComodin(this.user)
         .subscribe(
@@ -56,7 +65,7 @@ export class RelojComponent implements OnInit {
           },
           error => console.error(error)
         );
-    
+        this.stopLoading();
   }
   
 }

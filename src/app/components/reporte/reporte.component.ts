@@ -4,6 +4,7 @@ import { SemanaService } from '../../services/shared/semana.service';
 import { ReporteResponse } from "../../interfaces/reporte.interface";
 import { ReporteRequest } from "../../interfaces/reporte.interface";
 import { Semana } from "../../interfaces/shared/semana.interface";
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app-reporte',
@@ -17,14 +18,22 @@ export class ReporteComponent implements OnInit {
   listaAnios: number[] = [2018,2019];
   anio: number = 0;
   semana: number = 0;
-  constructor(private _reporte : ReporteService, private _semana : SemanaService) { }
+  constructor(private _reporte : ReporteService, private _semana : SemanaService, private loadingBar: LoadingBarService) { }
 
   ngOnInit() {
     this.getSemana();
     this.getDatos();
   }
 
+  startLoading() {
+    this.loadingBar.start();
+  }
+  stopLoading() {
+    this.loadingBar.complete();
+  }
+
   getDatos(){
+    this.startLoading();
     this.request = {
       YearActual: this.anio, 
       SemanaActual: this.semana
@@ -35,7 +44,7 @@ export class ReporteComponent implements OnInit {
           this.listaTareos = data
       }
     );
-
+    this.stopLoading();
   }
 
   getSemana(){
