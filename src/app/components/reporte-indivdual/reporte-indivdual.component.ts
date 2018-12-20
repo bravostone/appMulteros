@@ -167,7 +167,7 @@ export class ReporteIndivdualComponent implements OnInit {
     let i: Number = 0;
     let serieComodin: ReporteIndividualPuntos = { name:"", color:"yellow", data:[]};
     let serieComodinMulta: ReporteIndividualPuntos = { name:"", color:"black", data:[]};
-    let serieMulta: ReporteIndividualPuntos = { name:"", color:"red", data:[]};
+    let serieMulta: ReporteIndividualPuntos = { name:"", color:"lightcoral", data:[]};
 
     this.ListaNombres = [];
     this.ListaPuntos = [];
