@@ -6,7 +6,17 @@ export interface ReporteIndividualRequest{
 
 export interface ReporteIndividualResponse{
     NombreCompleto: string;
-    puntos_mes: string;    
+    Puntos_mes: string; 
+    Mes: string;
+    Puntos_comodin_multa: string;
+    Puntos_multa: string;
+    Puntos_comodin: string;
+
+}
+export interface ReporteIndividualPuntos{
+    name: string;
+    data: number[];
+
 }
 export interface ReporteIndividualSelect{
     codigo: number;

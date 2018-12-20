@@ -3,6 +3,7 @@ import { ReporteIndividualRequest } from "../../interfaces/reporteIndividual.int
 import { ReporteIndividualResponse } from "../../interfaces/reporteIndividual.interface";
 import { ReporteIndividualSelect } from "../../interfaces/reporteIndividual.interface";
 import { ReporteIndividualService } from "../../services/reporteIndividual.service";
+import { ReporteIndividualPuntos } from "../../interfaces/reporteIndividual.interface";
 import { LoadingBarService } from "@ngx-loading-bar/core";
 
 import { Chart } from "angular-highcharts";
@@ -123,8 +124,14 @@ export class ReporteIndivdualComponent implements OnInit {
           enabled: false
         },
         xAxis: {
-          categories: this.ListaNombres
+           categories: this.ListaNombres
+          //categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
         },
+        plotOptions: {
+          series: {
+              stacking: 'normal'
+          }
+      },
         yAxis: {
           //tickInterval: 1,
           allowDecimals: false,
@@ -140,6 +147,16 @@ export class ReporteIndivdualComponent implements OnInit {
             pointWidth: 20,
             data: this.ListaPuntos
           }
+        //   {
+        //     name: 'John',
+        //     data: [5, 3, 4, 7, 2]
+        // }, {
+        //     name: 'Jane',
+        //     data: [2, 2, 3, 2, 1]
+        // }, {
+        //     name: 'Joe',
+        //     data: [3, 4, 4, 2, 5]
+        // }
         ]
       });
       this.stopLoading();
@@ -149,11 +166,13 @@ export class ReporteIndivdualComponent implements OnInit {
     console.log("pintar lista datos asignados");
     console.log(this.listaDatos);
     let i: Number = 0;
+    let serie: ReporteIndividualPuntos;
     this.ListaNombres = [];
     this.ListaPuntos = [];
     for (let item of this.listaDatos) {
       this.ListaNombres.push(item.NombreCompleto);
-      this.ListaPuntos.push(parseInt(item.puntos_mes));
+      //serie.name
+      this.ListaPuntos.push(parseInt(item.Puntos_mes));
     }
   }
   // add point to chart serie
