@@ -16,6 +16,7 @@ export interface ReporteIndividualResponse{
 export interface ReporteIndividualPuntos{
     name: string;
     data: number[];
+    color: string;
 
 }
 export interface ReporteIndividualSelect{

@@ -15,7 +15,7 @@ import { Chart } from "angular-highcharts";
 })
 export class ReporteIndivdualComponent implements OnInit {
   chart = null;
-  public ListaPuntos: number[] = [];
+  public ListaPuntos: ReporteIndividualPuntos[] = [];
   public ListaNombres: string[] = [];
   listaDatos: ReporteIndividualResponse[];
   mes: number = new Date().getMonth() + 1;
@@ -124,8 +124,7 @@ export class ReporteIndivdualComponent implements OnInit {
           enabled: false
         },
         xAxis: {
-           categories: this.ListaNombres
-          //categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+           categories: this.ListaNombres          
         },
         plotOptions: {
           series: {
@@ -140,13 +139,13 @@ export class ReporteIndivdualComponent implements OnInit {
             align: "high"
           }
         },
-        series: [
-          {
-            name: "total Puntos",
-            colorIndex: 6,
-            pointWidth: 20,
-            data: this.ListaPuntos
-          }
+        series: this.ListaPuntos
+          // {
+          //   name: "total Puntos",
+          //   colorIndex: 6,
+          //   pointWidth: 20,
+          //   data: this.ListaPuntos
+          // }
         //   {
         //     name: 'John',
         //     data: [5, 3, 4, 7, 2]
@@ -157,7 +156,7 @@ export class ReporteIndivdualComponent implements OnInit {
         //     name: 'Joe',
         //     data: [3, 4, 4, 2, 5]
         // }
-        ]
+       // ]
       });
       this.stopLoading();
     }, 2000);
@@ -166,13 +165,36 @@ export class ReporteIndivdualComponent implements OnInit {
     console.log("pintar lista datos asignados");
     console.log(this.listaDatos);
     let i: Number = 0;
-    let serie: ReporteIndividualPuntos;
+    let serieComodin: ReporteIndividualPuntos = { name:"", color:"yellow", data:[]};
+    let serieComodinMulta: ReporteIndividualPuntos = { name:"", color:"black", data:[]};
+    let serieMulta: ReporteIndividualPuntos = { name:"", color:"red", data:[]};
+
     this.ListaNombres = [];
     this.ListaPuntos = [];
     for (let item of this.listaDatos) {
       this.ListaNombres.push(item.NombreCompleto);
       //serie.name
-      this.ListaPuntos.push(parseInt(item.Puntos_mes));
+      //this.ListaPuntos.push(parseInt(item.Puntos_mes));
+      serieComodin.name = "Comodin";
+      serieComodin.data.push(parseInt(item.Puntos_comodin)); 
+
+      serieComodinMulta.name = "Comodin+Multa";
+      serieComodinMulta.data.push(parseInt(item.Puntos_comodin_multa)); 
+      
+      serieMulta.name = "Multa";
+      serieMulta.data.push(parseInt(item.Puntos_multa)); 
+
+    }
+    if(serieComodin!=null){
+      console.log(serieComodin);
+      this.ListaPuntos.push(serieComodin);
+    }
+    if(serieComodinMulta!=null){
+      console.log(serieComodinMulta);
+      this.ListaPuntos.push(serieComodinMulta);
+    }
+    if(serieMulta!=null){
+      this.ListaPuntos.push(serieMulta);
     }
   }
   // add point to chart serie
