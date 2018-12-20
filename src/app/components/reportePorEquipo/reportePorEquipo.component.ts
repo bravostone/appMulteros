@@ -103,6 +103,7 @@ export class ReportePorEquipoComponent implements OnInit {
   }
 
   generarChart() {
+    debugger;
     this.startLoading();
     setTimeout(() => {
       this.chart = new Chart({
@@ -113,7 +114,11 @@ export class ReportePorEquipoComponent implements OnInit {
           text: "DashBoard de Puntaje por Equipos"
         },
         subtitle: {
-          text: "Periodo Diciembre " + this.filtros.YearActual
+          text:
+            "Periodo " +
+            this.ListaNombreMes[0] +
+            " - " +
+            this.filtros.YearActual
         },
         xAxis: {
           categories: this.ListaNombreMes,
@@ -126,15 +131,46 @@ export class ReportePorEquipoComponent implements OnInit {
             text: "Puntaje Acumulado"
           }
         },
-        //   tooltip: {
-        //     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        //     pointFormat:
-        //       '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-        //       '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        //     footerFormat: "</table>",
-        //     shared: true,
-        //     useHTML: true
-        //   },
+        tooltip: {
+          formatter: function() {
+            let cadena: string =
+              '<b>' +
+              // this.key +
+              // '</b><br/><b>' +
+              this.series.name +
+              '</b>';
+
+            switch (this.series.name) {
+              case "Equipo A":
+                cadena = cadena + '<br/>Oscar<br/>Alexi<br/>Carlos';
+                break;
+              case "Equipo B":
+                cadena = cadena + '<br/>Kati<br/>Johan<br/>Diana<br/>Andrea';
+                break;
+              case "Equipo C":
+                cadena = cadena + '<br/>Leo<br/>Cynthia<br/>Piero<br/>Cesareo';
+                break;
+            }
+            cadena = cadena + '<br/><b>Puntos: ' + this.point.y + '</b>'
+            return cadena;
+            // "<b>" +
+            // this.key +
+            // "</b><br/>" +
+            // this.series.name +
+            // ": " +
+            // this.point.y
+          }
+          // headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+          // pointFormat:
+          //   '<tr>'+
+          //   '<td style="color:{series.color};padding:0">{series.name}: </td>' +
+          //   '<td style="padding:0"><b>{point.y} puntos</b></td>'+
+          //   //'<div *ngIf = "{series.name} === "Equipo A""><div>Oscar</div></div>'+
+          //   '</tr>',
+          // footerFormat: "</table>",
+          // shared: false,
+          // useHTML: true
+        },
         plotOptions: {
           column: {
             pointPadding: 0.2,
@@ -164,6 +200,7 @@ export class ReportePorEquipoComponent implements OnInit {
   }
 
   obtenerMeses() {
+    this.ListaNombreMes = [];
     for (let index = 0; index < this.ListaMeses.length; index++) {
       if (this.filtros.MesActual > 0) {
         if (this.filtros.MesActual == this.ListaMeses[index].codigo) {
