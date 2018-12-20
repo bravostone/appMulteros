@@ -79,6 +79,16 @@ export class ReportePorEquipoComponent implements OnInit {
   }
 
   obtenerInfo() {
+    if (Number(this.filtros.YearActual) == 0) {
+      alert("Debe seleccionar el año para el filtro");
+      return;
+    }
+
+    if (Number(this.filtros.MesActual) == 0) {
+      alert("Debe seleccionar el mes para el filtro");
+      return;
+    }
+
     this._reportePorEquipoService
       .ObtenerListaPuntajeXEquipos(this.filtros)
       .subscribe(data => {

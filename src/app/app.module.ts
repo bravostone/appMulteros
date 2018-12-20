@@ -59,7 +59,7 @@ import { RelojComponent } from './components/reloj/reloj.component';
     AngularFontAwesomeModule,
     NgDragDropModule.forRoot(),
     ChartModule,
-    LoadingBarModule.forRoot()
+    LoadingBarModule
   ],
   providers: [
     TareoService,
