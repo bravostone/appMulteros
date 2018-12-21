@@ -34,12 +34,12 @@
                     </div>
                 </div>
             </form>
+            
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card-body">
+<br>
+    <div class="col-md-12">
             <table class="table table-bordered table-striped table-sm" *ngIf="listaTareos != undefined">
                 <thead>
                     <tr>
@@ -58,31 +58,36 @@
                             'red':item.Lunes === 'Multa',
                             'yellow':item.Lunes === 'Comodin',
                             'green':item.Lunes === 'Puntual',
-                            'wheat':item.Lunes === 'Permiso'
+                            'wheat':item.Lunes === 'Permiso',
+                            'black':item.Lunes === 'Comodin + Multa'
                           }">{{item.Lunes}}</td>
                         <td [ngClass]="{
                             'red':item.Martes === 'Multa',
                             'yellow':item.Martes === 'Comodin',
                             'green':item.Martes === 'Puntual',
-                            'wheat':item.Martes === 'Permiso'
+                            'wheat':item.Martes === 'Permiso',
+                            'black':item.Martes === 'Comodin + Multa'
                           }">{{item.Martes}}</td>
                         <td [ngClass]="{
                             'red':item.Miercoles === 'Multa',
                             'yellow':item.Miercoles === 'Comodin',
                             'green':item.Miercoles === 'Puntual',
-                            'wheat':item.Miercoles === 'Permiso'
+                            'wheat':item.Miercoles === 'Permiso',
+                            'black':item.Miercoles === 'Comodin + Multa'
                           }">{{item.Miercoles}}</td>
                         <td [ngClass]="{
                             'red':item.Jueves === 'Multa',
                             'yellow':item.Jueves === 'Comodin',
                             'green':item.Jueves === 'Puntual',
-                            'wheat':item.Jueves === 'Permiso'
+                            'wheat':item.Jueves === 'Permiso',
+                            'black':item.Jueves === 'Comodin + Multa'
                           }">{{item.Jueves}}</td>
                         <td [ngClass]="{
                             'red':item.Viernes === 'Multa',
                             'yellow':item.Viernes === 'Comodin',
                             'green':item.Viernes === 'Puntual',
-                            'wheat':item.Viernes === 'Permiso'
+                            'wheat':item.Viernes === 'Permiso',
+                            'black':item.Viernes === 'Comodin + Multa'
                           }">{{item.Viernes}}</td>
                     </tr>
                     <!-- <tr *ngIf="listaTareos === undefined || listaTareos.length === 0">
@@ -93,7 +98,5 @@
             <div *ngIf="listaTareos === undefined || listaTareos.length === 0" class="alert alert-info" role="alert">
                 <strong>No se encuentra información.</strong>
             </div>
-        </div>
     </div>
-</div>
 <ngx-loading-bar></ngx-loading-bar>
