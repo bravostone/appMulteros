@@ -34,12 +34,12 @@
                     </div>
                 </div>
             </form>
+            
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card-body">
+<br>
+    <div class="col-md-12">
             <table class="table table-bordered table-striped table-sm" *ngIf="listaTareos != undefined">
                 <thead>
                     <tr>
@@ -93,7 +93,5 @@
             <div *ngIf="listaTareos === undefined || listaTareos.length === 0" class="alert alert-info" role="alert">
                 <strong>No se encuentra información.</strong>
             </div>
-        </div>
     </div>
-</div>
 <ngx-loading-bar></ngx-loading-bar>
