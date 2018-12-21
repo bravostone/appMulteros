@@ -168,7 +168,7 @@ export class ReporteIndivdualComponent implements OnInit {
     let serieComodin: ReporteIndividualPuntos = { name:"", color:"yellow", data:[]};
     let serieComodinMulta: ReporteIndividualPuntos = { name:"", color:"black", data:[]};
     let serieMulta: ReporteIndividualPuntos = { name:"", color:"lightcoral", data:[]};
-
+    //TO DO debe ser dinámico la lista de categorias
     this.ListaNombres = [];
     this.ListaPuntos = [];
     for (let item of this.listaDatos) {
