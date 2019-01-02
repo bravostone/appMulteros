@@ -16,36 +16,36 @@
         <div class="row">
             <div class="col-sm">
                 <div class="menu-navigation-icons">
-                    <a class="menu-magenta" [routerLink]="['/reporte-component']" routerLinkActive="active"><i class="fa fa-clock-o"></i><span>Asistencia</span></a>
+                    <a class="menu-magenta" [routerLink]="['/reporte-component']" routerLinkActive="active" data-toggle="tooltip" data-placement="top" title="Tabla del día"><i class="fas fa-calendar-alt"></i></a>
                 </div>
             </div>
-            <!-- <div class="col-sm" *ngIf="user.Responsable==1"> -->
+
             <div class="col-sm">
                 <div class="menu-navigation-icons">
-                    <a href="#" class="menu-blue" [routerLink]="['/registroTareo']"><i class="fa fa-pencil-square-o"></i><span>Registrar Entrada</span></a><br>
+                    <a href="#" class="menu-pink" [routerLink]="['/comodin']"><i class="fas fa-gift"></i></a>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="menu-navigation-icons">
-                    <a href="#" class="menu-green" [routerLink]="['/reporte-individual']"><i class="fa fa-file-pdf-o"></i><span>Reporte</span></a>
+                    <a href="#" class="menu-green" [routerLink]="['/reporte-individual']"><i class="fa fa-file-pdf-o"></i></a>
                 </div>
             </div>
         </div>
         <br><br>
-        <div class="row">
+        <div class="row" *ngIf="user.Responsable==1">
             <div class="col-sm">
                 <div class="menu-navigation-icons">
-                    <a href="#" class="menu-pink" [routerLink]="['/comodin']"><i class="fas fa-gift"></i><span>Comodín</span></a>
+                    <a href="#" class="menu-blue" [routerLink]="['/registroTareo']"><i class="fa fa-pencil-square-o"></i></a><br>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="menu-navigation-icons">
-                    <a href="#" class="menu-yellow" [routerLink]="['/asignacionGrupo']"><i class="fa fa-users"></i><span>Equipo</span></a>
+                    <a href="#" class="menu-yellow" [routerLink]="['/asignacionGrupo']"><i class="fa fa-users"></i></a>
                 </div>
             </div>
             <div class="col-sm">
                 <div class="menu-navigation-icons">
-                    <a href="#" class="menu-red" [routerLink]="['/asignacionResponsable']"><i class="fa fa-user"></i><span>Responsable</span></a>
+                    <a href="#" class="menu-red" [routerLink]="['/asignacionResponsable']"><i class="fa fa-user"></i></a>
                 </div>
             </div>
         </div>
