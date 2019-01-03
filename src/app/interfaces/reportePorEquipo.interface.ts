@@ -6,6 +6,7 @@ export interface reporteXEquipoFiltro {
 export interface reporteXEquipoContenido {
   Puntos: number;
   NombreEquipo: string;
+  IntegrantesEquipo: string;
 }
 
 export interface ContenidoChart {
