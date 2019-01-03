@@ -9,7 +9,6 @@ import {StorageService} from "../.../../../../services/storage.service";
 })
 
 export class MenuComponent implements OnInit {
-  // public isEnabled:boolean=false;
   user: Usuario;
 
   constructor(private storageService: StorageService) { }

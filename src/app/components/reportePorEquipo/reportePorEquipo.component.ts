@@ -29,6 +29,9 @@ export class ReportePorEquipoComponent implements OnInit {
   PuntajeA: number[];
   PuntajeB: number[];
   PuntajeC: number[];
+  EquipoA: string;
+  EquipoB: string;
+  EquipoC: string;
 
   public ListaAnios: number[] = [2018, 2019];
   public ListaMeses: ReporteIndividualSelect[] = [
@@ -94,16 +97,18 @@ export class ReportePorEquipoComponent implements OnInit {
       .subscribe(data => {
         this.resultado = data;
       });
-    //console.log(this.resultado);
+      
     this.obtenerMeses();
     this.Pruebita();
-    if (this.resultado.length > 0) {
-      this.generarChart();
-    }
+
+    if (String(this.resultado) !== "undefined") {
+      if (this.resultado.length > 0) {
+        this.generarChart();
+      }
+    }    
   }
 
   generarChart() {
-    debugger;
     this.startLoading();
     setTimeout(() => {
       this.chart = new Chart({
@@ -135,41 +140,27 @@ export class ReportePorEquipoComponent implements OnInit {
           formatter: function() {
             let cadena: string =
               '<b>' +
-              // this.key +
-              // '</b><br/><b>' +
               this.series.name +
-              '</b>';
+              '</b><br/>';
 
-            switch (this.series.name) {
-              case "Equipo A":
-                cadena = cadena + '<br/>Oscar<br/>Alexi<br/>Carlos';
-                break;
-              case "Equipo B":
-                cadena = cadena + '<br/>Kati<br/>Johan<br/>Diana<br/>Andrea';
-                break;
-              case "Equipo C":
-                cadena = cadena + '<br/>Leo<br/>Cynthia<br/>Piero<br/>Cesareo';
-                break;
-            }
+            //  console.log(this.EquipoA);
+            //  console.log(this.series);
+            //  console.log(this.series.description);
+             cadena = cadena + this.series.userOptions.description
+            // switch (this.series.name) {
+            //   case "Equipo A":
+            //     cadena = cadena + this.series.userOptions.description; //String(this.EquipoA) + "Oscar<br/>Alexi<br/>Carlos";
+            //     break;
+            //   case "Equipo B":
+            //     cadena = cadena + this.EquipoB;//'<br/>Kati<br/>Johan<br/>Diana<br/>Andrea';
+            //     break;
+            //   case "Equipo C":
+            //     cadena = cadena + this.EquipoC;//'<br/>Leo<br/>Cynthia<br/>Piero<br/>Cesareo';
+            //     break;
+            // }
             cadena = cadena + '<br/><b>Puntos: ' + this.point.y + '</b>'
             return cadena;
-            // "<b>" +
-            // this.key +
-            // "</b><br/>" +
-            // this.series.name +
-            // ": " +
-            // this.point.y
           }
-          // headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-          // pointFormat:
-          //   '<tr>'+
-          //   '<td style="color:{series.color};padding:0">{series.name}: </td>' +
-          //   '<td style="padding:0"><b>{point.y} puntos</b></td>'+
-          //   //'<div *ngIf = "{series.name} === "Equipo A""><div>Oscar</div></div>'+
-          //   '</tr>',
-          // footerFormat: "</table>",
-          // shared: false,
-          // useHTML: true
         },
         plotOptions: {
           column: {
@@ -183,15 +174,18 @@ export class ReportePorEquipoComponent implements OnInit {
         series: [
           {
             name: "Equipo A",
-            data: this.PuntajeA
+            data: this.PuntajeA,
+            description: this.EquipoA
           },
           {
             name: "Equipo B",
-            data: this.PuntajeB
+            data: this.PuntajeB,
+            description:this.EquipoB
           },
           {
             name: "Equipo C",
-            data: this.PuntajeC
+            data: this.PuntajeC,
+            description:this.EquipoC
           }
         ]
       });
@@ -216,18 +210,26 @@ export class ReportePorEquipoComponent implements OnInit {
     this.PuntajeA = [];
     this.PuntajeB = [];
     this.PuntajeC = [];
+    this.EquipoA = "";
+    this.EquipoB = "";
+    this.EquipoC = "";
 
-    for (let index = 0; index < this.resultado.length; index++) {
-      switch (this.resultado[index].NombreEquipo) {
-        case "Equipo A":
-          this.PuntajeA.push(this.resultado[index].Puntos);
-          break;
-        case "Equipo B":
-          this.PuntajeB.push(this.resultado[index].Puntos);
-          break;
-        case "Equipo C":
-          this.PuntajeC.push(this.resultado[index].Puntos);
-          break;
+    if (String(this.resultado) !== "undefined") {
+      for (let index = 0; index < this.resultado.length; index++) {
+        switch (this.resultado[index].NombreEquipo) {
+          case "Equipo A":
+            this.PuntajeA.push(this.resultado[index].Puntos);
+            this.EquipoA = this.resultado[index].IntegrantesEquipo.replace(",","<br/>").replace(",","<br/>").replace(",","<br/>");
+            break;
+          case "Equipo B":
+            this.PuntajeB.push(this.resultado[index].Puntos);
+            this.EquipoB = this.resultado[index].IntegrantesEquipo.replace(",","<br/>").replace(",","<br/>").replace(",","<br/>").replace(",","<br/>");
+            break;
+          case "Equipo C":
+            this.PuntajeC.push(this.resultado[index].Puntos);
+            this.EquipoC = this.resultado[index].IntegrantesEquipo.replace(",","<br/>").replace(",","<br/>").replace(",","<br/>").replace(",","<br/>");
+            break;
+        }
       }
     }
   }
