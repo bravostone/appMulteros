@@ -9,19 +9,14 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
-  background-size: 100% 100%;
-  /* background-repeat: no-repeat; */
-  background-image: url(../../../assets/login/tardanza-rebel-circus.jpg);
 }
 
 .form-signin {
   width: 100%;
   max-width: 330px;
-  padding: 15px;
+  padding: 10px;
   margin: auto;
   text-align: center;
-  margin-top: 50px;
 }
 .form-signin .checkbox {
   font-weight: 400;
@@ -48,5 +43,11 @@ body {
 }
 
 .title{
-  color: white
+  color: black
+}
+
+.btn-primaryCustom {
+  color: #fff;
+  background-color: #c1272d;
+  border-color: #c1272d;
 }

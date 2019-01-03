@@ -2,7 +2,6 @@ import { Component,OnInit } from '@angular/core';
 import { TareoService} from '../../services/registroTareo.service';
 import { Tareo, insertTareo  } from '../../interfaces/registroTareo.interface';
 import {Router} from '@angular/router'
-import { element } from 'protractor';
 import * as $ from 'jquery';
 
 @Component({
@@ -37,7 +36,6 @@ export class RegistroTareoComponent implements OnInit {
   ngOnInit() {
     this.getFecha();
     this.getDatos();
-    //this.fecha.mes;
   }
 
   getFecha(){
