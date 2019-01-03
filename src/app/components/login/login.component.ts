@@ -34,13 +34,10 @@ export class LoginComponent implements OnInit {
             data => this.correctLogin(data),
             error => this.error = JSON.parse(error._body)
         );
-        // if (this.myform.valid) {
-        //   console.log("Form Submitted!");
-        // }
       }
 
       private correctLogin(data: Usuario){
-          debugger;
+       
         if(data.Exito)
         {
         this.storageService.setCurrentSession(data);
