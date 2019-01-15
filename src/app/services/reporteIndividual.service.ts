@@ -12,7 +12,7 @@ export class ReporteIndividualService {
     }
 
     getReporteIndividual(_datos : ReporteIndividualRequest){
-        debugger;
+
         let body    = JSON.stringify( _datos);
         let headers = new Headers({
                                       'Content-Type': 'application/json; charset=utf-8',

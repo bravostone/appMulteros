@@ -16,7 +16,7 @@ import { LoadingBarService } from "@ngx-loading-bar/core";
   templateUrl: "./reportePorEquipo.component.html"
 })
 export class ReportePorEquipoComponent implements OnInit {
-  resultado: reporteXEquipoContenido[];
+  resultado: reporteXEquipoContenido[]= [];
   charter: ContenidoChart;
 
   chart = null;
@@ -50,27 +50,13 @@ export class ReportePorEquipoComponent implements OnInit {
   ];
   public ListaNombreMes: string[] = [];
 
-  public Arraycin = [
-    {
-      name: "Equipo A",
-      data: [9]
-    },
-    {
-      name: "Equipo B",
-      data: [11]
-    },
-    {
-      name: "Equipo C",
-      data: [11]
-    }
-  ];
-
   constructor(
     private _reportePorEquipoService: ReportePorEquipoService,
     private loadingBar: LoadingBarService
   ) {}
 
   ngOnInit() {
+    console.log(this);
     this.obtenerInfo();
   }
 
@@ -97,15 +83,15 @@ export class ReportePorEquipoComponent implements OnInit {
       .subscribe(data => {
         this.resultado = data;
       });
-      
+
     this.obtenerMeses();
-    this.Pruebita();
+    this.GenerarContenido();
 
     if (String(this.resultado) !== "undefined") {
       if (this.resultado.length > 0) {
         this.generarChart();
       }
-    }    
+    }
   }
 
   generarChart() {
@@ -138,27 +124,11 @@ export class ReportePorEquipoComponent implements OnInit {
         },
         tooltip: {
           formatter: function() {
-            let cadena: string =
-              '<b>' +
-              this.series.name +
-              '</b><br/>';
+            let cadena: string = "<b>" + this.series.name + "</b><br/>";
 
-            //  console.log(this.EquipoA);
-            //  console.log(this.series);
-            //  console.log(this.series.description);
-             cadena = cadena + this.series.userOptions.description
-            // switch (this.series.name) {
-            //   case "Equipo A":
-            //     cadena = cadena + this.series.userOptions.description; //String(this.EquipoA) + "Oscar<br/>Alexi<br/>Carlos";
-            //     break;
-            //   case "Equipo B":
-            //     cadena = cadena + this.EquipoB;//'<br/>Kati<br/>Johan<br/>Diana<br/>Andrea';
-            //     break;
-            //   case "Equipo C":
-            //     cadena = cadena + this.EquipoC;//'<br/>Leo<br/>Cynthia<br/>Piero<br/>Cesareo';
-            //     break;
-            // }
-            cadena = cadena + '<br/><b>Puntos: ' + this.point.y + '</b>'
+            cadena = cadena + this.series.userOptions.description;
+
+            cadena = cadena + "<br/><b>Puntos: " + this.point.y + "</b>";
             return cadena;
           }
         },
@@ -180,12 +150,12 @@ export class ReportePorEquipoComponent implements OnInit {
           {
             name: "Equipo B",
             data: this.PuntajeB,
-            description:this.EquipoB
+            description: this.EquipoB
           },
           {
             name: "Equipo C",
             data: this.PuntajeC,
-            description:this.EquipoC
+            description: this.EquipoC
           }
         ]
       });
@@ -206,28 +176,45 @@ export class ReportePorEquipoComponent implements OnInit {
     }
   }
 
-  Pruebita() {
+  GenerarContenido() {
     this.PuntajeA = [];
     this.PuntajeB = [];
     this.PuntajeC = [];
     this.EquipoA = "";
     this.EquipoB = "";
     this.EquipoC = "";
-
+debugger;
     if (String(this.resultado) !== "undefined") {
       for (let index = 0; index < this.resultado.length; index++) {
         switch (this.resultado[index].NombreEquipo) {
           case "Equipo A":
             this.PuntajeA.push(this.resultado[index].Puntos);
-            this.EquipoA = this.resultado[index].IntegrantesEquipo.replace(",","<br/>").replace(",","<br/>").replace(",","<br/>");
+            this.EquipoA = this.resultado[index].IntegrantesEquipo.replace(
+              ",",
+              "<br/>"
+            )
+              .replace(",", "<br/>")
+              .replace(",", "<br/>");
             break;
           case "Equipo B":
             this.PuntajeB.push(this.resultado[index].Puntos);
-            this.EquipoB = this.resultado[index].IntegrantesEquipo.replace(",","<br/>").replace(",","<br/>").replace(",","<br/>").replace(",","<br/>");
+            this.EquipoB = this.resultado[index].IntegrantesEquipo.replace(
+              ",",
+              "<br/>"
+            )
+              .replace(",", "<br/>")
+              .replace(",", "<br/>")
+              .replace(",", "<br/>");
             break;
           case "Equipo C":
             this.PuntajeC.push(this.resultado[index].Puntos);
-            this.EquipoC = this.resultado[index].IntegrantesEquipo.replace(",","<br/>").replace(",","<br/>").replace(",","<br/>").replace(",","<br/>");
+            this.EquipoC = this.resultado[index].IntegrantesEquipo.replace(
+              ",",
+              "<br/>"
+            )
+              .replace(",", "<br/>")
+              .replace(",", "<br/>")
+              .replace(",", "<br/>");
             break;
         }
       }

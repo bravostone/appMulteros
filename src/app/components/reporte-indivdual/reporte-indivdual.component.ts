@@ -42,42 +42,6 @@ export class ReporteIndivdualComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //this.getDatos();
-    // setTimeout(() => {
-    //   this.setArmarArrays();
-    // }, 2000);
-    // setTimeout(() => {
-    //   this.chart = new Chart({
-    //     chart: {
-    //       type: 'bar'
-    //     },
-    //     title: {
-    //       text: 'Puntos Individuales del Mes'
-    //     },
-    //     credits: {
-    //       enabled: false
-    //     },
-    //     xAxis: {
-    //       categories: this.ListaNombres
-    //     },
-    //     yAxis: {
-    //       //tickInterval: 1,
-    //       allowDecimals: false,
-    //       title: {
-    //         text: '', //values
-    //         align: 'high'
-    //     }
-    //      },
-    //     series: [
-    //       {
-    //         name: 'total Puntos',
-    //         colorIndex: 6,
-    //         pointWidth:20,
-    //         data: this.ListaPuntos
-    //       }
-    //     ]
-    //   });
-    // }, 2000);
   }
   startLoading() {
     this.loadingBar.start();
@@ -86,16 +50,9 @@ export class ReporteIndivdualComponent implements OnInit {
     this.loadingBar.complete();
   }
   getDatos() {
-    // this.request = {
-    //   YearActual: 2018,
-    //   SemanaActual: 0,
-    //   MesActual: 12
-    // };
 
     this._reporte.getReporteIndividual(this.request).subscribe((data: any) => {
-      //console.log(data);
       this.listaDatos = data;
-      //console.log(this.listaDatos);
     });
   }
   getReporte(anio: number, mes: number) {
@@ -105,7 +62,6 @@ export class ReporteIndivdualComponent implements OnInit {
       SemanaActual: 0,
       MesActual: mes
     };
-    console.log(this.request);
 
     this.getDatos();
     setTimeout(() => {
@@ -140,30 +96,12 @@ export class ReporteIndivdualComponent implements OnInit {
           }
         },
         series: this.ListaPuntos
-          // {
-          //   name: "total Puntos",
-          //   colorIndex: 6,
-          //   pointWidth: 20,
-          //   data: this.ListaPuntos
-          // }
-        //   {
-        //     name: 'John',
-        //     data: [5, 3, 4, 7, 2]
-        // }, {
-        //     name: 'Jane',
-        //     data: [2, 2, 3, 2, 1]
-        // }, {
-        //     name: 'Joe',
-        //     data: [3, 4, 4, 2, 5]
-        // }
-       // ]
       });
       this.stopLoading();
     }, 2000);
   }
   setArmarArrays() {
-    console.log("pintar lista datos asignados");
-    console.log(this.listaDatos);
+    
     let i: Number = 0;
     let serieComodin: ReporteIndividualPuntos = { name:"", color:"yellow", data:[]};
     let serieComodinMulta: ReporteIndividualPuntos = { name:"", color:"black", data:[]};
@@ -186,11 +124,9 @@ export class ReporteIndivdualComponent implements OnInit {
 
     }
     if(serieComodin!=null){
-      console.log(serieComodin);
       this.ListaPuntos.push(serieComodin);
     }
     if(serieComodinMulta!=null){
-      console.log(serieComodinMulta);
       this.ListaPuntos.push(serieComodinMulta);
     }
     if(serieMulta!=null){

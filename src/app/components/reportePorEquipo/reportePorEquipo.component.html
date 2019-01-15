@@ -8,7 +8,7 @@
         <div class="card-body">
             <form #forma="ngForm">
                 <div class="row">
-                    <label class="col-md-2 col-form-label" for="disabled-input">Año:</label>
+                    <label class="col-md-1 col-form-label" for="disabled-input">Año:</label>
                     <div class="col-md-3">
                         <select [(ngModel)]="filtros.YearActual" name="YearActual" class="custom-select">
                                 <option value="0">--Seleccionar--</option>                                       
@@ -17,7 +17,7 @@
                                         </option>
                                     </select>
                     </div>
-                    <label class="col-md-2 col-form-label" for="disabled-input">Mes:</label>
+                    <label class="col-md-1 col-form-label" for="disabled-input">Mes:</label>
                     <div class="col-md-3">
                         <select [(ngModel)]="filtros.MesActual" name="MesActual" class="custom-select">
                                         <option value="0">--Seleccionar--</option>
@@ -26,25 +26,28 @@
                                         </option>
                                     </select>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-1 col-form-label">
-                        <button [routerLink]="['/reporte-individual']" routerLinkActive="active" class="btn btn-outline-danger">Retornar</button>
-                    </div>
-                    <div class="col-md-1 col-form-label">
+
+                    <div class="col-md-1">
                         <button type="button" (click)="obtenerInfo()" class="btn btn-outline-primary">Mostrar Reporte</button>
+                    </div>
+                    <div class="col-md-1">
+
+                    </div>
+                    <div class="col-md-1">
+                        <button [routerLink]="['/reporte-individual']" routerLinkActive="active" class="btn btn-outline-danger">Ir a Reporte Individual</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    <br/>
+</div>
+<br/>
+<div class="col-md-12">
     <div *ngIf="resultado.length === 0" class="alert alert-info" role="alert">
         <strong>No hay información que mostrar.</strong>
     </div>
-    <div *ngIf="resultado.length > 0">
-        <div [chart]="chart">
-        </div>
-    </div>
+</div>
+<div class="col-md-12">
+    <div *ngIf="resultado.length > 0" [chart]="chart"></div>
 </div>
 <ngx-loading-bar></ngx-loading-bar>
