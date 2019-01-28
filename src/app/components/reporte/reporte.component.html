@@ -34,69 +34,74 @@
                     </div>
                 </div>
             </form>
-            
+
         </div>
     </div>
 </div>
 <br>
-    <div class="col-md-12">
-            <table class="table table-bordered table-striped table-sm" *ngIf="listaTareos != undefined">
-                <thead>
-                    <tr>
-                        <th class="row-name">Nombre</th>
-                        <th class="row-align">Lunes</th>
-                        <th class="row-align">Martes</th>
-                        <th class="row-align">Miércoles</th>
-                        <th class="row-align">Jueves</th>
-                        <th class="row-align">Viernes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of listaTareos">
-                        <td class="row-name">{{item.NombreCompleto}}</td>
-                        <td [ngClass]="{
+<div class="col-md-12">
+    <table class="table table-bordered table-striped table-sm" *ngIf="listaTareos != undefined">
+        <thead>
+            <tr>
+                <th class="row-name">Nombre</th>
+                <th class="row-align">Lunes</th>
+                <th class="row-align">Martes</th>
+                <th class="row-align">Miércoles</th>
+                <th class="row-align">Jueves</th>
+                <th class="row-align">Viernes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listaTareos">
+                <td class="row-name">{{item.NombreCompleto}}</td>
+                <td [ngClass]="{
                             'red':item.Lunes === 'Multa',
                             'yellow':item.Lunes === 'Comodin',
                             'green':item.Lunes === 'Puntual',
                             'wheat':item.Lunes === 'Permiso',
-                            'black':item.Lunes === 'Comodin + Multa'
+                            'black':item.Lunes === 'Comodin + Multa',
+                            'white':item.Lunes === 'Marcha Blanca'
                           }">{{item.Lunes}}</td>
-                        <td [ngClass]="{
+                <td [ngClass]="{
                             'red':item.Martes === 'Multa',
                             'yellow':item.Martes === 'Comodin',
                             'green':item.Martes === 'Puntual',
                             'wheat':item.Martes === 'Permiso',
-                            'black':item.Martes === 'Comodin + Multa'
+                            'black':item.Martes === 'Comodin + Multa',
+                            'white':item.Martes === 'Marcha Blanca'
                           }">{{item.Martes}}</td>
-                        <td [ngClass]="{
+                <td [ngClass]="{
                             'red':item.Miercoles === 'Multa',
                             'yellow':item.Miercoles === 'Comodin',
                             'green':item.Miercoles === 'Puntual',
                             'wheat':item.Miercoles === 'Permiso',
-                            'black':item.Miercoles === 'Comodin + Multa'
+                            'black':item.Miercoles === 'Comodin + Multa',
+                            'white':item.Miercoles === 'Marcha Blanca'
                           }">{{item.Miercoles}}</td>
-                        <td [ngClass]="{
+                <td [ngClass]="{
                             'red':item.Jueves === 'Multa',
                             'yellow':item.Jueves === 'Comodin',
                             'green':item.Jueves === 'Puntual',
                             'wheat':item.Jueves === 'Permiso',
-                            'black':item.Jueves === 'Comodin + Multa'
+                            'black':item.Jueves === 'Comodin + Multa',
+                            'white':item.Jueves === 'Marcha Blanca'
                           }">{{item.Jueves}}</td>
-                        <td [ngClass]="{
+                <td [ngClass]="{
                             'red':item.Viernes === 'Multa',
                             'yellow':item.Viernes === 'Comodin',
                             'green':item.Viernes === 'Puntual',
                             'wheat':item.Viernes === 'Permiso',
-                            'black':item.Viernes === 'Comodin + Multa'
+                            'black':item.Viernes === 'Comodin + Multa',
+                            'white':item.Viernes === 'Marcha Blanca'
                           }">{{item.Viernes}}</td>
-                    </tr>
-                    <!-- <tr *ngIf="listaTareos === undefined || listaTareos.length === 0">
+            </tr>
+            <!-- <tr *ngIf="listaTareos === undefined || listaTareos.length === 0">
                         <td colspan=6 class="alert alert-info">No se encuentra información</td>
                     </tr> -->
-                </tbody>
-            </table>
-            <div *ngIf="listaTareos === undefined || listaTareos.length === 0" class="alert alert-info" role="alert">
-                <strong>No se encuentra información.</strong>
-            </div>
+        </tbody>
+    </table>
+    <div *ngIf="listaTareos === undefined || listaTareos.length === 0" class="alert alert-info" role="alert">
+        <strong>No se encuentra información.</strong>
     </div>
+</div>
 <ngx-loading-bar></ngx-loading-bar>
