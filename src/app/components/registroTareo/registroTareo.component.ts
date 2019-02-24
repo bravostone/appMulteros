@@ -64,7 +64,6 @@ export class RegistroTareoComponent implements OnInit {
   }
 
   insertDatos(){
-    debugger;
     let lineItems: any = [];
     let myTable = document.getElementById("tblValues");
     lineItems.length = 0;

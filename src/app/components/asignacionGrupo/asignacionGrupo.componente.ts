@@ -1,6 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { usuarioInterface } from "../../interfaces/shared/usuario.interface";
+import { insertGrupo } from '../../interfaces/asignacionGrupo.interface';
 import { UsuarioService } from "../../services/shared/usuario.service";
+import { AsignacionGrupoService} from "../../services/asignacionGrupos.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -10,51 +12,109 @@ import { Router } from "@angular/router";
 
 export class AsignacionGrupoComponent implements OnInit {
 
-    usuarios: usuarioInterface[] = [];
+    datos:insertGrupo = {
+        Lista : []
+      };
 
+    fecha: any = {
+        mesNombre: ""
+      }
+
+    usuarios: usuarioInterface[] = [];
+    
     dropGrupoA: usuarioInterface[] = [];
     dropGrupoB: usuarioInterface[] = [];
     dropGrupoC: usuarioInterface[] = [];
        
     constructor(private _usuarioService: UsuarioService,
-            private router : Router) {}
-    
+                private _asignar: AsignacionGrupoService,
+                private router : Router) {}
+
     removeItem(item: any, list: Array<any>) {
-        let index = list.map(function (e) {
-            return e.title
-        }).indexOf(item.title);
+        let index = list.indexOf(item);
         list.splice(index, 1);
         }
               
     onItemDropGrupoA(e: any) {
-        debugger;
         this.dropGrupoA.push(e.dragData);
         this.removeItem(e.dragData, this.usuarios);
     }
 
     onItemDropGrupoB(e: any) {
-        debugger;
         this.dropGrupoB.push(e.dragData);
         this.removeItem(e.dragData, this.usuarios);
     }
 
     onItemDropGrupoC(e: any) {
-        debugger;
         this.dropGrupoC.push(e.dragData);
         this.removeItem(e.dragData, this.usuarios);
     }
 
     ngOnInit() {
        this.getDatos();
+       this.getFecha();
     }
+
+    getFecha(){
+        var objDate = new Date(),
+        locale = "es-PE",
+        month = objDate.toLocaleString(locale, { month: "long" });
+        this.fecha.mesNombre = month;
+        }
 
     getDatos(){
         this._usuarioService.obtenerUsuario().subscribe(dataUser => {
             this.usuarios = dataUser;
             });
     }
+    
+    cleanGrupos(){
+        debugger;
+        this.dropGrupoA = [];
+        this.dropGrupoB = [];
+        this.dropGrupoC = [];
+        this.getDatos();
+    }
 
     insertGrupos(){
 
+        this.dropGrupoA.forEach(element => {
+            this.datos.Lista.push({
+                CodigoUsuario : element.codigo_usuario,
+                NombreEquipo  : "Equipo A",
+                Mes           : new Date().getMonth(),
+                Anio          : new Date().getFullYear()
+            })
+        });
+
+        this.dropGrupoB.forEach(element => {
+            this.datos.Lista.push({
+                CodigoUsuario : element.codigo_usuario,
+                NombreEquipo  : "Equipo B",
+                Mes           : new Date().getMonth(),
+                Anio          : new Date().getFullYear()
+            })
+        });
+
+        this.dropGrupoC.forEach(element => {
+            this.datos.Lista.push({
+                CodigoUsuario : element.codigo_usuario,
+                NombreEquipo  : "Equipo C",
+                Mes           : new Date().getMonth(),
+                Anio          : new Date().getFullYear()
+            })
+        });
+
+        this._asignar.insertGrupo(this.datos).subscribe(
+           (data: any) =>{
+             if(data.Exito == true){
+                 this.getDatos();
+                 alert(data.Mensaje);
+             }
+             else{
+               alert(data.Mensaje);
+             }
+           }
+         );
     }
   }

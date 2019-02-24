@@ -5,45 +5,56 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <strong>Registro de Grupos</strong> - Mes Noviembre
+            <strong>Registro de Grupos</strong> - Mes {{fecha.mesNombre}}
         </div>
         <div class="card-body">
             <form (ngSubmit)="insertGrupos()" #forma="ngForm" enctype="multipart/form-data" class="form-horizontal">
                 <div class="row">
                     <div class="col-sm-3">
                         <ul class="list-group">
-                            <li class="list-group-item" style="background-color: coral;">Lista de Usuarios</li>
+                            <li class="list-group-item" style="background-color: #f26262;">
+                                <a style="color: white">Lista de Usuarios</a></li>
                             <li draggable *ngFor="let item of usuarios" [dragData]="item" class="list-group-item">{{item.nombre}}</li>
                         </ul>
-                    </div>
-                    
+                    </div> 
                     <div class="col-sm-3" droppable >
                             <ul class="list-group" droppable (onDrop)="onItemDropGrupoA($event)">
-                                <li class="list-group-item" style="background-color: blue;">Grupo A</li>
+                                <li class="list-group-item" style="background-color:#57b2d8;">
+                                    <a style="color: white">Grupo A</a></li>
                                 <div class="panel-body">
                                     <li *ngFor="let item of dropGrupoA" class="list-group-item">{{item.nombre}}</li>
                                 </div>
                             </ul>
-                        </div>
-                        
+                    </div>    
                     <div class="col-sm-3" droppable >
                                 <ul class="list-group" droppable (onDrop)="onItemDropGrupoB($event)">
-                                    <li class="list-group-item" style="background-color: blue;">Grupo B</li>
+                                    <li class="list-group-item" style="background-color: #57b2d8;">
+                                        <a style="color: white">Grupo B</a></li>
                                     <div class="panel-body">
                                         <li *ngFor="let item of dropGrupoB" class="list-group-item">{{item.nombre}}</li>
                                     </div>
                                 </ul>
-                        </div>
-
-                  <div class="col-sm-3" droppable >
-                        <div class="list-group" droppable (onDrop)="onItemDropGrupoC($event)">
-                            <div class="list-group-item" style="background-color: blue;">Grupo C</div>
+                    </div>
+                    <div class="col-sm-3" droppable >
+                        <ul class="list-group" droppable (onDrop)="onItemDropGrupoC($event)">
+                            <li class="list-group-item" style="background-color: #57b2d8;">
+                                <a style="color: white">Grupo C</a></li>
                                 <div class="panel-body">
                                     <li *ngFor="let item of dropGrupoC" class="list-group-item">{{item.nombre}}</li>
                                 </div>
-                            </div>
+                            </ul>
 
-                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2 col-form-label">
+                            <!-- <button type="button" class="btn btn-outline-danger"  style="width: 90px; margin-right: 5px">Retornar</button> -->
+                            <button type="button" class="btn btn-outline-secondary" style="width: 90px; margin-right: 5px" (click)="cleanGrupos()">Limpiar</button>
+                            <button type="button" class="btn btn-outline-primary" style="width: 90px;" (click)="insertGrupos()"  >Grabar</button>
+                    </div>
                 </div>
             </form>
         </div>

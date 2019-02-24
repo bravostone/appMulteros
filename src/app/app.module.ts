@@ -18,6 +18,7 @@ import { ReporteService } from "./services/reporte.service";
 import { SemanaService } from "./services/shared/semana.service";
 import { ReporteIndividualService } from "./services/reporteIndividual.service";
 import { ReportePorEquipoService } from "./services/reportePorEquipo.service";
+import { AsignacionGrupoService} from "./services/asignacionGrupos.service";
 
 //Rutas
 import { appRoutingProvider, routing } from "./app-routing.module";
@@ -35,6 +36,7 @@ import { ReporteIndivdualComponent } from "./components/reporte-indivdual/report
 import { ReportePorEquipoComponent } from "./components/reportePorEquipo/reportePorEquipo.component";
 import { GeneralComponent } from './components/shared/general/general.component';
 import { RelojComponent } from './components/reloj/reloj.component';
+
 
 @NgModule({
   declarations: [
@@ -72,7 +74,8 @@ import { RelojComponent } from './components/reloj/reloj.component';
     ReporteIndividualService,
     ReportePorEquipoService,
     SemanaService,
-    ReporteIndividualService
+    ReporteIndividualService,
+    AsignacionGrupoService
   ],
   bootstrap: [AppComponent]
 })
