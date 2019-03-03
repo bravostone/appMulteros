@@ -82,7 +82,7 @@ export class AsignacionGrupoComponent implements OnInit {
             this.datos.Lista.push({
                 CodigoUsuario : element.codigo_usuario,
                 NombreEquipo  : "Equipo A",
-                Mes           : new Date().getMonth(),
+                Mes           : new Date().getMonth() +1,
                 Anio          : new Date().getFullYear()
             })
         });
@@ -91,7 +91,7 @@ export class AsignacionGrupoComponent implements OnInit {
             this.datos.Lista.push({
                 CodigoUsuario : element.codigo_usuario,
                 NombreEquipo  : "Equipo B",
-                Mes           : new Date().getMonth(),
+                Mes           : new Date().getMonth() +1,
                 Anio          : new Date().getFullYear()
             })
         });
@@ -100,7 +100,7 @@ export class AsignacionGrupoComponent implements OnInit {
             this.datos.Lista.push({
                 CodigoUsuario : element.codigo_usuario,
                 NombreEquipo  : "Equipo C",
-                Mes           : new Date().getMonth(),
+                Mes           : new Date().getMonth() +1,
                 Anio          : new Date().getFullYear()
             })
         });
@@ -108,7 +108,7 @@ export class AsignacionGrupoComponent implements OnInit {
         this._asignar.insertGrupo(this.datos).subscribe(
            (data: any) =>{
              if(data.Exito == true){
-                 this.getDatos();
+                 this.cleanGrupos();
                  alert(data.Mensaje);
              }
              else{

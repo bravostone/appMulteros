@@ -1,10 +1,7 @@
 <app-navbar></app-navbar>
-
 <body>
-    <br><br>
-    <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="container-fluid">
                 <div id="contReloj">
                     <p id="pHoras">{{horas}}</p>
                     <p>:</p>
@@ -13,7 +10,6 @@
                     <p id="pSegundos">{{segundos}}</p>
                 </div>
             </div>
-            <!-- <div class="col"></div> -->
         </div>
         <div class="row">
             <div class="col">
@@ -24,6 +20,6 @@
                 <div id="btn"><button class="btn btn-lg btn-primary" (click)="guardar()">Pedir Comodín</button></div>
             </div>
         </div>
-    </div>
 </body>
+
 <ngx-loading-bar></ngx-loading-bar>

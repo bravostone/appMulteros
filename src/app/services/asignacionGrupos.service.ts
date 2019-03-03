@@ -7,14 +7,13 @@ import { insertGrupo} from "../interfaces/asignacionGrupo.interface"
 @Injectable()
 export class AsignacionGrupoService{
     
-    url_InsertGrupo: string  = "";
+    url_InsertGrupo: string  = "https://gymsolucionesdev-multeros.azurewebsites.net/api/Tareo/InsertarFormacionEquipos";
 
     constructor(private http: Http){
-        console.log("entre al servicio de Grupo");
+        //console.log("entre al servicio de Grupo");
     }
 
     insertGrupo(_datos : insertGrupo){
-        debugger;
         let body    = JSON.stringify( _datos.Lista);
         let headers = new Headers({
                                       'Content-Type': 'application/json; charset=utf-8',
