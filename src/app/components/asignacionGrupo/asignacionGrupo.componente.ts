@@ -69,7 +69,6 @@ export class AsignacionGrupoComponent implements OnInit {
     }
     
     cleanGrupos(){
-        debugger;
         this.dropGrupoA = [];
         this.dropGrupoB = [];
         this.dropGrupoC = [];

@@ -36,7 +36,7 @@ import { ReporteIndivdualComponent } from "./components/reporte-indivdual/report
 import { ReportePorEquipoComponent } from "./components/reportePorEquipo/reportePorEquipo.component";
 import { GeneralComponent } from './components/shared/general/general.component';
 import { RelojComponent } from './components/reloj/reloj.component';
-
+import { PermisoComponent } from './components/permiso/permiso.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,8 @@ import { RelojComponent } from './components/reloj/reloj.component';
     ReporteIndivdualComponent,
     ReportePorEquipoComponent,
     GeneralComponent,
-    RelojComponent
+    RelojComponent,
+    PermisoComponent
   ],
   imports: [
     BrowserModule,

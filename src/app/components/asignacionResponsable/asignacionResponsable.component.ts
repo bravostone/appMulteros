@@ -30,9 +30,8 @@ export class AsignacionResponsableComponent implements OnInit {
     private _usuarioService: UsuarioService,
     private _AsignacionResponsableService: AsignacionResponsableService,
     private _router: Router,
-    private _storageService: StorageService) 
-    
-    {
+    private _storageService: StorageService
+  ) {
     this._usuarioService.obtenerUsuario().subscribe(dataUser => {
       this.usuarios = dataUser;
     });
@@ -40,21 +39,9 @@ export class AsignacionResponsableComponent implements OnInit {
     this._AsignacionResponsableService
       .ObtenerInfoResponsable()
       .subscribe(dataresp => {
-        //console.log(dataresp);
-        // for (let index = 0; index < this.usuarios.length; index++) {
-        //   if (this.usuarios[index].codigo_usuario = dataresp.CodigoUsuarioActual)
-        //   {
-        //     dataresp.NombreCompleto = this.usuarios[index].nombre;
-        //   }
-        // }
-        //dataresp.CodigoUsuarioAntiguo = dataresp.CodigoUsuarioActual;
-        //dataresp.CodigoUsuarioActual = 0;
-
         if (Number(dataresp.CodigoUsuarioActual) != 0) {
           this.asignacion = dataresp;
         }
-        //this.asignacion = dataresp;
-        //console.log(dataresp);
       });
   }
 
@@ -88,7 +75,6 @@ export class AsignacionResponsableComponent implements OnInit {
         .InsertResponsable(this.asignacion)
         .subscribe(
           data => {
-            //console.log(data);
             alert("Usuario registrado correctamente!");
             this._router.navigate(["/menu"]);
           },

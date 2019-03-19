@@ -3,7 +3,7 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <strong >Registro de Asistencia</strong> -  Mes {{fecha.mesNombre}}
+            <strong>Registro de Asistencia</strong> - Mes {{fecha.mesNombre}}
         </div>
         <div class="card-body">
             <form (ngSubmit)="insertDatos()" #forma="ngForm" enctype="multipart/form-data" class="form-horizontal">
@@ -47,6 +47,7 @@
                                                     [ngClass]="{ 'red':item2.descripcion_valor === 'Multa',
                                                                  'yellow':item2.descripcion_valor === 'Comodin',
                                                                  'green':item2.descripcion_valor === 'Puntual',
+                                                                 'orange':item2.descripcion_valor === 'Vacaciones',
                                                                  'wheat':item2.descripcion_valor === 'Permiso'}">
                                                                {{item2.descripcion_valor}}</option>
                                             </select>

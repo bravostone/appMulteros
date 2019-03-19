@@ -56,7 +56,6 @@ export class ReportePorEquipoComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this);
     this.obtenerInfo();
   }
 
@@ -183,7 +182,7 @@ export class ReportePorEquipoComponent implements OnInit {
     this.EquipoA = "";
     this.EquipoB = "";
     this.EquipoC = "";
-debugger;
+
     if (String(this.resultado) !== "undefined") {
       for (let index = 0; index < this.resultado.length; index++) {
         switch (this.resultado[index].NombreEquipo) {

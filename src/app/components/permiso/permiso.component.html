@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+<body>
+    <div class="row">
+        <div class="container-fluid">
+            <div id="contReloj">
+                <p id="pHoras">{{horas}}</p>
+                <p>:</p>
+                <p id="pMinutos">{{minutos}}</p>
+                <p>:</p>
+                <p id="pSegundos">{{segundos}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div id="contSaludo">{{pSaludo}}</div>
+        </div>
+        <div class="col">
+            <br><br>
+            <div id="btn"><button class="btn btn-lg btn-primary" (click)="guardar()">Pedir Permiso</button></div>
+        </div>
+    </div>
+</body>
+
+<ngx-loading-bar></ngx-loading-bar>

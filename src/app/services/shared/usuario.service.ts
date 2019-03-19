@@ -1,21 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { Http, Headers } from "@angular/http";
 //import "rxjs/Rx";
-import { usuarioInterface } from '../../interfaces/shared/usuario.interface';
+import { usuarioInterface } from "../../interfaces/shared/usuario.interface";
 
-import { Observable, Subject } from 'rxjs';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import { Observable, Subject } from "rxjs";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/catch";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class UsuarioService {
-UsuarioURL: string = "https://gymsolucionesdev-multeros.azurewebsites.net/api/Tareo/ListarUsuarios2";
+  UsuarioURL: string =
+    "https://gymsolucionesdev-multeros.azurewebsites.net/api/Tareo/ListarUsuarios2";
 
-  constructor(private http:Http) { }
+  constructor(private http: Http) {}
 
-  obtenerUsuario(){
+  obtenerUsuario() {
     let body = JSON.stringify("");
     let headers = new Headers({
       "Content-Type": "application/json"
