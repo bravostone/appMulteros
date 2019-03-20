@@ -28,6 +28,7 @@ export class PermisoComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log(window.location.hostname);
     this.user = this.storageService.getCurrentUser();
     this.asistencia = {codigo_usuario:1, usuario_creacion:"",terminal_creacion:""};
     this.ActualizarHora();
