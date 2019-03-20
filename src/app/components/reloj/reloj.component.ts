@@ -3,6 +3,7 @@ import { StorageService } from "../../services/storage.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ComodinService } from "../../services/comodin.service";
 import { Usuario } from "../../interfaces/usuario.interface";
+import { usuarioAsistencia } from "../../interfaces/shared/usuarioAsistencia.interface";
 import { LoadingBarService } from "@ngx-loading-bar/core";
 
 @Component({
@@ -16,6 +17,7 @@ export class RelojComponent implements OnInit {
   segundos: number;
   pSaludo: string;
   user: Usuario;
+  asistencia: usuarioAsistencia;
 
   constructor(
     private _comodinService: ComodinService,
@@ -26,6 +28,11 @@ export class RelojComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.storageService.getCurrentUser();
+    this.asistencia = {
+      codigo_usuario: 1,
+      usuario_creacion: "",
+      terminal_creacion: ""
+    };
 
     this.ActualizarHora();
     setInterval(() => {
@@ -59,7 +66,11 @@ export class RelojComponent implements OnInit {
 
   guardar() {
     this.startLoading();
-    this._comodinService.InsertComodin(this.user).subscribe(
+    this.asistencia.codigo_usuario = this.user.codigo_usuario;
+    this.asistencia.usuario_creacion = this.user.alias;
+    this.asistencia.terminal_creacion = "";
+
+    this._comodinService.InsertComodin(this.asistencia).subscribe(
       data => {
         alert(data.Mensaje);
         this._router.navigate(["/menu"]);

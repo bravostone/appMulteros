@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { TareoService } from "../../services/registroTareo.service";
 import { Tareo, insertTareo } from "../../interfaces/registroTareo.interface";
 import { Router } from "@angular/router";
+import { Usuario } from "../../interfaces/usuario.interface";
+import { StorageService } from "../../services/storage.service";
 import * as $ from "jquery";
 
 @Component({
@@ -10,6 +12,7 @@ import * as $ from "jquery";
   styleUrls: ["./registroTareo.component.css"]
 })
 export class RegistroTareoComponent implements OnInit {
+  user: Usuario;
   bandeja: Tareo = {
     dia: "",
     responsable: "",
@@ -18,16 +21,28 @@ export class RegistroTareoComponent implements OnInit {
   };
 
   datos: insertTareo = {
-    Lista: [{ CodigoUsuario: 0, CodigoAsistencia: 0 }]
+    Lista: [
+      {
+        codigo_usuario: 0,
+        codigo_asistencia: 0,
+        usuario_creacion: "",
+        terminal_creacion: ""
+      }
+    ]
   };
 
   fecha: any = {
     mesNombre: ""
   };
 
-  constructor(private _tareo: TareoService, private router: Router) {}
+  constructor(
+    private _tareo: TareoService,
+    private router: Router,
+    private storageService: StorageService
+  ) {}
 
   ngOnInit() {
+    this.user = this.storageService.getCurrentUser();
     this.getFecha();
     this.getDatos();
   }
@@ -68,14 +83,16 @@ export class RegistroTareoComponent implements OnInit {
           .val() != "0"
       ) {
         lineItems.push({
-          CodigoUsuario: $(rowItem)
+          codigo_usuario: $(rowItem)
             .find("td:gt(0)")
             .first()
             .text(),
-          CodigoAsistencia: $(rowItem)
+          codigo_asistencia: $(rowItem)
             .find("td:gt(2)")
             .find("select")
-            .val()
+            .val(),
+          usuario_creacion: this.user.alias,
+          terminal_creacion: ""
         });
       }
     }
