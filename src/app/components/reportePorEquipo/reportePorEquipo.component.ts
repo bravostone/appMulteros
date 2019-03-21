@@ -86,7 +86,7 @@ export class ReportePorEquipoComponent implements OnInit {
     this.obtenerMeses();
     this.GenerarContenido();
 
-    if (String(this.resultado) !== "undefined") {
+    if (this.resultado !== undefined) {
       if (this.resultado.length > 0) {
         this.generarChart();
       }
@@ -183,7 +183,7 @@ export class ReportePorEquipoComponent implements OnInit {
     this.EquipoB = "";
     this.EquipoC = "";
 
-    if (String(this.resultado) !== "undefined") {
+    if (this.resultado !== undefined) {
       for (let index = 0; index < this.resultado.length; index++) {
         switch (this.resultado[index].NombreEquipo) {
           case "Equipo A":

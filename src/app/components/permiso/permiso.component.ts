@@ -2,10 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { StorageService } from "../../services/storage.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { PermisoService } from "../../services/permiso.service";
-import { Usuario } from '../../interfaces/usuario.interface';
-import { usuarioAsistencia } from '../../interfaces/shared/usuarioAsistencia.interface';
+import { Usuario } from "../../interfaces/usuario.interface";
+import { usuarioAsistencia } from "../../interfaces/shared/usuarioAsistencia.interface";
 import { LoadingBarService } from "@ngx-loading-bar/core";
-import { environment } from '../../../environments/environment';
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: "app-permiso",
@@ -13,9 +13,9 @@ import { environment } from '../../../environments/environment';
   styleUrls: ["./permiso.component.css"]
 })
 export class PermisoComponent implements OnInit {
-  horas: number;
-  minutos: number;
-  segundos: number;
+  horas: string;
+  minutos: string;
+  segundos: string;
   pSaludo: string;
   user: Usuario;
   asistencia: usuarioAsistencia;
@@ -29,7 +29,11 @@ export class PermisoComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.storageService.getCurrentUser();
-    this.asistencia = {codigo_usuario:1, usuario_creacion:"",terminal_creacion:""};
+    this.asistencia = {
+      codigo_usuario: 1,
+      usuario_creacion: "",
+      terminal_creacion: ""
+    };
     this.ActualizarHora();
     setInterval(() => {
       this.ActualizarHora();
@@ -45,17 +49,40 @@ export class PermisoComponent implements OnInit {
 
   ActualizarHora() {
     var fecha = new Date();
-    this.segundos = fecha.getSeconds();
-    this.minutos = fecha.getMinutes();
-    this.horas = fecha.getHours();
 
-    if (this.horas >= 8 && this.minutos >= 1 && this.horas < 12) {
+    if (fecha.getSeconds() < 10) {
+      this.segundos = "0" + fecha.getSeconds().toString();
+    } else {
+      this.segundos = fecha.getSeconds().toString();
+    }
+
+    if (fecha.getMinutes() < 10) {
+      this.minutos = "0" + fecha.getMinutes().toString();
+    } else {
+      this.minutos = fecha.getMinutes().toString();
+    }
+
+    if (fecha.getHours() < 10) {
+      this.horas = "0" + fecha.getHours().toString();
+    } else {
+      this.horas = fecha.getHours().toString();
+    }
+
+    if (
+      Number(this.horas) >= 5 &&
+      Number(this.minutos) >= 1 &&
+      Number(this.horas) < 12
+    ) {
       this.pSaludo = "Buenos días";
     }
-    if (this.horas >= 12 && this.minutos >= 1 && this.horas < 19) {
+    if (
+      Number(this.horas) >= 12 &&
+      Number(this.minutos) >= 1 &&
+      Number(this.horas) < 19
+    ) {
       this.pSaludo = "Buenas tardes";
     }
-    if (this.horas >= 19 && this.minutos >= 1) {
+    if (Number(this.horas) >= 19 && Number(this.minutos) >= 1) {
       this.pSaludo = "Buenas noches";
     }
   }

@@ -8,7 +8,6 @@ export class ReporteIndividualService {
   url_reporte: string =
     "https://gymsolucionesdev-multeros.azurewebsites.net/api/Tareo/ReportePuntajeIndividual";
   constructor(private http: Http) {
-    console.log("entre al servicio de tareo");
   }
 
   getReporteIndividual(_datos: ReporteIndividualRequest) {

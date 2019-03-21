@@ -12,9 +12,9 @@ import { LoadingBarService } from "@ngx-loading-bar/core";
   styleUrls: ["./reloj.component.css"]
 })
 export class RelojComponent implements OnInit {
-  horas: number;
-  minutos: number;
-  segundos: number;
+  horas: string;
+  minutos: string;
+  segundos: string;
   pSaludo: string;
   user: Usuario;
   asistencia: usuarioAsistencia;
@@ -49,17 +49,40 @@ export class RelojComponent implements OnInit {
 
   ActualizarHora() {
     var fecha = new Date();
-    this.segundos = fecha.getSeconds();
-    this.minutos = fecha.getMinutes();
-    this.horas = fecha.getHours();
 
-    if (this.horas >= 8 && this.minutos >= 1 && this.horas < 12) {
+    if (fecha.getSeconds() < 10) {
+      this.segundos = "0" + fecha.getSeconds().toString();
+    } else {
+      this.segundos = fecha.getSeconds().toString();
+    }
+
+    if (fecha.getMinutes() < 10) {
+      this.minutos = "0" + fecha.getMinutes().toString();
+    } else {
+      this.minutos = fecha.getMinutes().toString();
+    }
+
+    if (fecha.getHours() < 10) {
+      this.horas = "0" + fecha.getHours().toString();
+    } else {
+      this.horas = fecha.getHours().toString();
+    }
+
+    if (
+      Number(this.horas) >= 5 &&
+      Number(this.minutos) >= 1 &&
+      Number(this.horas) < 12
+    ) {
       this.pSaludo = "Buenos días";
     }
-    if (this.horas >= 12 && this.minutos >= 1 && this.horas < 19) {
+    if (
+      Number(this.horas) >= 12 &&
+      Number(this.minutos) >= 1 &&
+      Number(this.horas) < 19
+    ) {
       this.pSaludo = "Buenas tardes";
     }
-    if (this.horas >= 19 && this.minutos >= 1) {
+    if (Number(this.horas) >= 19 && Number(this.minutos) >= 1) {
       this.pSaludo = "Buenas noches";
     }
   }
