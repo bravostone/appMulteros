@@ -138,8 +138,14 @@ export class ReportePorEquipoComponent implements OnInit {
           }
         },
         exporting: {
-          enabled: true
-        },
+          filename: 'ReporteEquipo',
+          buttons: {
+              contextButton: {
+                  menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF']
+              }
+          },
+          allowHTML: true
+      },
         series: [
           {
             name: "Equipo A",

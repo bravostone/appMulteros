@@ -38,6 +38,9 @@ import { GeneralComponent } from './components/shared/general/general.component'
 import { RelojComponent } from './components/reloj/reloj.component';
 import { PermisoComponent } from './components/permiso/permiso.component';
 
+import * as Highcharts from 'highcharts';
+require('highcharts/modules/exporting')(Highcharts);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,9 +62,9 @@ import { PermisoComponent } from './components/permiso/permiso.component';
     FormsModule,
     HttpModule,
     routing,
+    ChartModule,
     AngularFontAwesomeModule,
     NgDragDropModule.forRoot(),
-    ChartModule,
     LoadingBarModule
   ],
   providers: [
